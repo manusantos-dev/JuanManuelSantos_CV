@@ -13,7 +13,7 @@ body { font-family: Arial, sans-serif; display: flex; background: #F3F4F6; color
 /* SIDEBAR */
 .sidebar {
   width: 260px;
-  background: #3B82F6; /* azul suave */
+  background: #3B82F6;
   color: white;
   height: 100vh;
   position: fixed;
@@ -78,30 +78,30 @@ section h2 { color: #2563EB; margin-bottom: 0.8rem; border-bottom: 2px solid #25
 
 <div class="sidebar">
   <h1>Juan Manuel Santos</h1>
-  <p>Mathematics Student | Programming | Cybersecurity</p>
-  <a href="mailto:jm.santos.dev@gmail.com"><i class="fas fa-envelope"></i>Email</a>
-  <a href="https://www.linkedin.com/in/usuario" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
-  <a href="https://github.com/manusantos-dev" target="_blank"><i class="fab fa-github"></i>GitHub</a>
-  <a href="#cv"><i class="fas fa-file-pdf"></i>CV</a>
-  <a href="#skills"><i class="fas fa-code"></i>Skills</a>
+  <p id="sidebar-role">Mathematics Student | Programming | Cybersecurity</p>
+  <a id="sidebar-email" href="mailto:jm.santos.dev@gmail.com"><i class="fas fa-envelope"></i>Email</a>
+  <a id="sidebar-linkedin" href="https://www.linkedin.com/in/usuario" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+  <a id="sidebar-github" href="https://github.com/manusantos-dev" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+  <a id="sidebar-cv" href="#cv"><i class="fas fa-file-pdf"></i>CV</a>
+  <a id="sidebar-skills" href="#skills"><i class="fas fa-code"></i>Skills</a>
 </div>
 
 <div class="main">
   <div class="lang-switch">
-    <span>Language:</span>
+    <span id="lang-label">Language:</span>
     <button id="btn-en" class="active">English</button>
     <button id="btn-es">Español</button>
   </div>
 
   <section id="profile">
-    <h2>Profile</h2>
+    <h2 id="profile-title">Profile</h2>
     <p id="profile-text">
       Passionate about cybersecurity, with a strong foundation in logic, programming, and analytical thinking. Currently focused on expanding my knowledge in information security. Self-motivated and experienced in teaching computer science, with solid skills in Python. Looking for a technical environment where I can continue growing and building my career in the field of cybersecurity.
     </p>
   </section>
 
   <section id="education">
-    <h2>Education</h2>
+    <h2 id="education-title">Education</h2>
     <ul id="edu-list">
       <li><strong>University of Málaga – Bachelor’s Degree in Mathematics</strong> (2021 – Present)<br>Special interest in algebra, geometry, and topology, focusing on theoretical foundations and applications. Strong skills in optimization, probability, and statistics. Hands-on experience in programming with Haskell, Scala, and Python.</li>
       <li><strong>IES Bezmiliana – Science & Technology High School Diploma</strong></li>
@@ -111,7 +111,7 @@ section h2 { color: #2563EB; margin-bottom: 0.8rem; border-bottom: 2px solid #25
   </section>
 
   <section id="experience">
-    <h2>Experience</h2>
+    <h2 id="experience-title">Experience</h2>
     <ul id="exp-list">
       <li><strong>Freelance – Private Tutor</strong> (September 2017 – Present)<br>Tutoring Mathematics for secondary and high school students. Since 2022, university-level lessons in Geometry and Computer Science (Haskell & Scala).</li>
       <li><strong>UNITEC Academies, Málaga – Teacher</strong> (September 2024 – Present)<br>Teaching Geometry and Programming (Python, Haskell, Scala) to first-year Mathematics undergraduates.</li>
@@ -119,8 +119,8 @@ section h2 { color: #2563EB; margin-bottom: 0.8rem; border-bottom: 2px solid #25
   </section>
 
   <section id="skills">
-    <h2>Technical Skills</h2>
-    <div class="skills">
+    <h2 id="skills-title">Technical Skills</h2>
+    <div class="skills" id="skills-list">
       <span><i class="fab fa-python" style="color:#306998;"></i>Python</span>
       <span><i class="fas fa-cogs" style="color:#7876D4;"></i>Scala</span>
       <span><i class="fas fa-cogs" style="color:#5E5086;"></i>Haskell</span>
@@ -132,7 +132,7 @@ section h2 { color: #2563EB; margin-bottom: 0.8rem; border-bottom: 2px solid #25
   </section>
 
   <section id="cv">
-    <h2>Curriculum Vitae</h2>
+    <h2 id="cv-title">Curriculum Vitae</h2>
     <iframe id="pdf-viewer" src="JuanManuelSantos_CV_EN.pdf" class="pdf-viewer"></iframe>
     <div class="download-link">
       <a id="download-link" href="JuanManuelSantos_CV_EN.pdf" target="_blank">📄 Download CV</a>
@@ -143,15 +143,45 @@ section h2 { color: #2563EB; margin-bottom: 0.8rem; border-bottom: 2px solid #25
 <script>
 const btnEn = document.getElementById('btn-en');
 const btnEs = document.getElementById('btn-es');
-const profileText = document.getElementById('profile-text');
-const pdfViewer = document.getElementById('pdf-viewer');
-const downloadLink = document.getElementById('download-link');
-const eduList = document.getElementById('edu-list');
-const expList = document.getElementById('exp-list');
-const skillsDiv = document.querySelector('.skills');
+
+const elements = {
+  profileText: document.getElementById('profile-text'),
+  profileTitle: document.getElementById('profile-title'),
+  eduList: document.getElementById('edu-list'),
+  educationTitle: document.getElementById('education-title'),
+  expList: document.getElementById('exp-list'),
+  experienceTitle: document.getElementById('experience-title'),
+  skillsList: document.getElementById('skills-list'),
+  skillsTitle: document.getElementById('skills-title'),
+  pdfViewer: document.getElementById('pdf-viewer'),
+  downloadLink: document.getElementById('download-link'),
+  sidebarRole: document.getElementById('sidebar-role'),
+  sidebarEmail: document.getElementById('sidebar-email'),
+  sidebarLinkedIn: document.getElementById('sidebar-linkedin'),
+  sidebarGitHub: document.getElementById('sidebar-github'),
+  sidebarCV: document.getElementById('sidebar-cv'),
+  sidebarSkills: document.getElementById('sidebar-skills'),
+  langLabel: document.getElementById('lang-label')
+};
 
 const content = {
   en: {
+    titles: {
+      profile: "Profile",
+      education: "Education",
+      experience: "Experience",
+      skills: "Technical Skills",
+      cv: "Curriculum Vitae"
+    },
+    sidebar: {
+      role: "Mathematics Student | Programming | Cybersecurity",
+      email: "Email",
+      linkedin: "LinkedIn",
+      github: "GitHub",
+      cv: "CV",
+      skills: "Skills",
+      lang: "Language:"
+    },
     profile: "Passionate about cybersecurity, with a strong foundation in logic, programming, and analytical thinking. Currently focused on expanding my knowledge in information security. Self-motivated and experienced in teaching computer science, with solid skills in Python. Looking for a technical environment where I can continue growing and building my career in the field of cybersecurity.",
     education: `<li><strong>University of Málaga – Bachelor’s Degree in Mathematics</strong> (2021 – Present)<br>Special interest in algebra, geometry, and topology, focusing on theoretical foundations and applications. Strong skills in optimization, probability, and statistics. Hands-on experience in programming with Haskell, Scala, and Python.</li>
 <li><strong>IES Bezmiliana – Science & Technology High School Diploma</strong></li>
@@ -165,9 +195,27 @@ const content = {
 <span><i class="fas fa-file-alt" style="color:#000000;"></i>LaTeX</span>
 <span><i class="fas fa-laptop-code" style="color:#1DA1F2;"></i>RStudio</span>
 <span><i class="fas fa-laptop-code" style="color:#FF9900;"></i>Jupyter Notebook</span>
-<span><i class="fas fa-laptop-code" style="color:#44A7B3;"></i>Anaconda</span>`
+<span><i class="fas fa-laptop-code" style="color:#44A7B3;"></i>Anaconda</span>`,
+    pdf: "JuanManuelSantos_CV_EN.pdf",
+    downloadText: "📄 Download CV"
   },
   es: {
+    titles: {
+      profile: "Sobre mí",
+      education: "Formación",
+      experience: "Experiencia",
+      skills: "Habilidades Técnicas",
+      cv: "Currículum Vitae"
+    },
+    sidebar: {
+      role: "Estudiante de Matemáticas | Programación | Ciberseguridad",
+      email: "Correo",
+      linkedin: "LinkedIn",
+      github: "GitHub",
+      cv: "CV",
+      skills: "Habilidades",
+      lang: "Idioma:"
+    },
     profile: "Apasionado por la ciberseguridad, con una base sólida en lógica, programación y pensamiento analítico. Actualmente enfocado en desarrollar mis conocimientos en seguridad informática. Perfil autodidacta, con experiencia docente en informática y buen manejo de Python. Busco un entorno técnico en el que seguir creciendo y consolidando mi carrera en el ámbito de la ciberseguridad.",
     education: `<li><strong>Universidad de Málaga – Grado en Matemáticas</strong> (2021 – Actualidad)<br>Interés especial en álgebra, geometría y topología, con atención a sus fundamentos teóricos y aplicaciones. Buen dominio de optimización, probabilidad y estadística. Formación práctica en programación con Haskell, Scala y Python.</li>
 <li><strong>IES Bezmiliana – Bachillerato Tecnológico</strong></li>
@@ -181,30 +229,46 @@ const content = {
 <span><i class="fas fa-file-alt" style="color:#000000;"></i>LaTeX</span>
 <span><i class="fas fa-laptop-code" style="color:#1DA1F2;"></i>RStudio</span>
 <span><i class="fas fa-laptop-code" style="color:#FF9900;"></i>Jupyter Notebook</span>
-<span><i class="fas fa-laptop-code" style="color:#44A7B3;"></i>Anaconda</span>`
+<span><i class="fas fa-laptop-code" style="color:#44A7B3;"></i>Anaconda</span>`,
+    pdf: "JuanManuelSantos_CV_ES.pdf",
+    downloadText: "📄 Descargar CV"
   }
 };
 
-btnEn.addEventListener('click', () => {
-  btnEn.classList.add('active'); btnEs.classList.remove('active');
-  profileText.innerHTML = content.en.profile;
-  eduList.innerHTML = content.en.education;
-  expList.innerHTML = content.en.experience;
-  skillsDiv.innerHTML = content.en.skills;
-  pdfViewer.src = "JuanManuelSantos_CV_EN.pdf";
-  downloadLink.href = "JuanManuelSantos_CV_EN.pdf";
-  downloadLink.textContent = "📄 Download CV";
-});
+function switchLanguage(lang){
+  const c = content[lang];
+  // Sección principal
+  elements.profileText.innerHTML = c.profile;
+  elements.profileTitle.textContent = c.titles.profile;
+  elements.educationTitle.textContent = c.titles.education;
+  elements.eduList.innerHTML = c.education;
+  elements.experienceTitle.textContent = c.titles.experience;
+  elements.expList.innerHTML = c.experience;
+  elements.skillsTitle.textContent = c.titles.skills;
+  elements.skillsList.innerHTML = c.skills;
+  elements.pdfViewer.src = c.pdf;
+  elements.downloadLink.href = c.pdf;
+  elements.downloadLink.textContent = c.downloadText;
+  // Sidebar
+  elements.sidebarRole.textContent = c.sidebar.role;
+  elements.sidebarEmail.innerHTML = `<i class="fas fa-envelope"></i>${c.sidebar.email}`;
+  elements.sidebarLinkedIn.innerHTML = `<i class="fab fa-linkedin"></i>${c.sidebar.linkedin}`;
+  elements.sidebarGitHub.innerHTML = `<i class="fab fa-github"></i>${c.sidebar.github}`;
+  elements.sidebarCV.innerHTML = `<i class="fas fa-file-pdf"></i>${c.sidebar.cv}`;
+  elements.sidebarSkills.innerHTML = `<i class="fas fa-code"></i>${c.sidebar.skills}`;
+  // Label del selector
+  elements.langLabel.textContent = c.sidebar.lang;
+}
 
-btnEs.addEventListener('click', () => {
+btnEn.addEventListener('click', ()=>{
+  btnEn.classList.add('active'); btnEs.classList.remove('active');
+  switchLanguage('en');
+});
+btnEs.addEventListener('click', ()=>{
   btnEs.classList.add('active'); btnEn.classList.remove('active');
-  profileText.innerHTML = content.es.profile;
-  eduList.innerHTML = content.es.education;
-  expList.innerHTML = content.es.experience;
-  skillsDiv.innerHTML = content.es.skills;
-  pdfViewer.src = "JuanManuelSantos_CV_ES.pdf";
-  downloadLink.href = "JuanManuelSantos_CV_ES.pdf";
-  downloadLink.textContent = "📄 Descargar CV";
+  switchLanguage('es');
 });
 </script>
 
+</body>
+</html>
