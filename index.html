@@ -80,19 +80,33 @@ ul li { margin-bottom:10px; }
 
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
-    <i class="fas fa-times sidebar-toggle" id="closeSidebar"></i>
-    <img src="images/foto.jpg" alt="Juan Manuel Santos">
-    <h1>Juan Manuel Santos</h1>
-    <h2 id="sidebar-role">Estudiante de Matemáticas | Programación | Ciberseguridad</h2>
-    <a href="mailto:jm.santos.dev@gmail.com"><i class="fas fa-envelope"></i><span id="sidebar-email">Correo</span></a>
-    <a href="https://www.linkedin.com/in/juan-manuel-santos-garcia/" target="_blank"><i class="fab fa-linkedin"></i><span id="sidebar-linkedin">LinkedIn</span></a>
-    <a href="https://github.com/manusantos-dev" target="_blank"><i class="fab fa-github"></i><span id="sidebar-github">GitHub</span></a>
-    <a href="cvs/JuanManuelSantos_CV_ES.pdf" target="_blank"><i class="fas fa-file-pdf"></i><span id="sidebar-cv">Descargar CV</span></a>
-    <div>
-        <span id="lang-label">Idioma:</span>
-        <button class="lang-btn active" id="btnEs">ES</button>
-        <button class="lang-btn" id="btnEn">EN</button>
-    </div>
+  <i class="fas fa-times sidebar-toggle" id="closeSidebar"></i>
+  <img src="images/foto.jpg" alt="Juan Manuel Santos">
+  <h1>Juan Manuel Santos</h1>
+  <h2 id="sidebar-role">Estudiante de Matemáticas | Programación | Ciberseguridad</h2>
+
+  <!-- anchors CON id y span interno para el texto -->
+  <a id="link-email" href="mailto:jm.santos.dev@gmail.com">
+    <i class="fas fa-envelope"></i><span id="sidebar-email">Correo</span>
+  </a>
+
+  <a id="link-linkedin" href="https://www.linkedin.com/in/juan-manuel-santos-garcia/" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-linkedin"></i><span id="sidebar-linkedin">LinkedIn</span>
+  </a>
+
+  <a id="link-github" href="https://github.com/manusantos-dev" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-github"></i><span id="sidebar-github">GitHub</span>
+  </a>
+
+  <a id="link-cv" href="cvs/JuanManuelSantos_CV_ES.pdf" target="_blank" rel="noopener noreferrer">
+    <i class="fas fa-file-pdf"></i><span id="sidebar-cv">Descargar CV</span>
+  </a>
+
+  <div>
+    <span id="lang-label">Idioma:</span>
+    <button class="lang-btn active" id="btnEs">ES</button>
+    <button class="lang-btn" id="btnEn">EN</button>
+  </div>
 </div>
 
 <i class="fas fa-bars sidebar-toggle" id="openSidebar"></i>
@@ -157,87 +171,141 @@ ul li { margin-bottom:10px; }
 </div>
 
 <script>
-// Traducciones
+/* --- Traducciones (texto + ruta CV) --- */
 const translations = {
-    es: {
-        sidebarRole: "Estudiante de Matemáticas | Programación | Ciberseguridad",
-        sidebarEmail: "Correo",
-        sidebarLinkedin: "LinkedIn",
-        sidebarGithub: "GitHub",
-        sidebarCV: "Descargar CV",
-        profileTitle: "Sobre mí",
-        profileText: "Apasionado por la ciberseguridad, con una base sólida en lógica, programación y pensamiento analítico. Actualmente enfocado en desarrollar mis conocimientos en seguridad informática. Perfil autodidacta, con experiencia docente en informática y buen manejo de Python. Busco un entorno técnico en el que seguir creciendo y consolidando mi carrera en el ámbito de la ciberseguridad.",
-        projectsTitle: "Proyectos Destacados",
-        skillsTitle: "Habilidades Técnicas",
-        educationTitle: "Formación",
-        experienceTitle: "Experiencia",
-        contactTitle: "Contacto",
-        cvFile: "cvs/JuanManuelSantos_CV_ES.pdf"
-    },
-    en: {
-        sidebarRole: "Mathematics Student | Programming | Cybersecurity",
-        sidebarEmail: "Email",
-        sidebarLinkedin: "LinkedIn",
-        sidebarGithub: "GitHub",
-        sidebarCV: "Download CV",
-        profileTitle: "Profile",
-        profileText: "Passionate about cybersecurity with a solid foundation in logic, programming, and analytical thinking. Currently focused on developing my knowledge in information security. Self-taught profile, with teaching experience in computing and strong Python skills. Looking for a technical environment to continue growing and consolidating my career in cybersecurity.",
-        projectsTitle: "Highlighted Projects",
-        skillsTitle: "Technical Skills",
-        educationTitle: "Education",
-        experienceTitle: "Experience",
-        contactTitle: "Contact",
-        cvFile: "cvs/JuanManuelSantos_CV_EN.pdf"
-    }
+  es: {
+    sidebarRole: "Estudiante de Matemáticas | Programación | Ciberseguridad",
+    sidebarEmail: "Correo",
+    sidebarCV: "Descargar CV",
+    profileTitle: "Sobre mí",
+    profileText: "Apasionado por la ciberseguridad, con una base sólida en lógica, programación y pensamiento analítico. Actualmente enfocado en desarrollar mis conocimientos en seguridad informática. Perfil autodidacta, con experiencia docente en informática y buen manejo de Python. Busco un entorno técnico en el que seguir creciendo y consolidando mi carrera en el ámbito de la ciberseguridad.",
+    projectsTitle: "Proyectos Destacados",
+    skillsTitle: "Habilidades Técnicas",
+    educationTitle: "Formación",
+    experienceTitle: "Experiencia",
+    contactTitle: "Contacto",
+    cvFile: "cvs/JuanManuelSantos_CV_ES.pdf",
+    eduList: [
+      "Universidad de Málaga – Grado en Matemáticas (2021 – Actualidad)",
+      "Alliance Française – Francés DELF B1 (2018 – 2019)",
+      "IES Bezmiliana – Bachillerato Tecnológico",
+      "Santander Open Academy – Introducción a la Ciencia de Datos (Agosto 2024)",
+      "Google.org & UMA – Cyber Bootcamp (Julio 2024)"
+    ],
+    expList: [
+      "Autónomo – Profesor particular (Septiembre 2017 – Actualidad)",
+      "UNITEC Academies, Málaga – Profesor (Septiembre 2024 – Actualidad)"
+    ]
+  },
+  en: {
+    sidebarRole: "Mathematics Student | Programming | Cybersecurity",
+    sidebarEmail: "Email",
+    sidebarCV: "Download CV",
+    profileTitle: "Profile",
+    profileText: "Passionate about cybersecurity with a solid foundation in logic, programming, and analytical thinking. Currently focused on developing my knowledge in information security. Self-taught, with teaching experience in computing and strong Python skills. Looking for a technical environment to continue growing and consolidating my career in cybersecurity.",
+    projectsTitle: "Highlighted Projects",
+    skillsTitle: "Technical Skills",
+    educationTitle: "Education",
+    experienceTitle: "Experience",
+    contactTitle: "Contact",
+    cvFile: "cvs/JuanManuelSantos_CV_EN.pdf",
+    eduList: [
+      "University of Málaga – BSc in Mathematics (2021 – Present)",
+      "Alliance Française – French DELF B1 (2018 – 2019)",
+      "IES Bezmiliana – Technological Baccalaureate",
+      "Santander Open Academy – Introduction to Data Science (August 2024)",
+      "Google.org & UMA – Cyber Bootcamp (July 2024)"
+    ],
+    expList: [
+      "Freelancer – Private Tutor (September 2017 – Present)",
+      "UNITEC Academies, Málaga – Teacher (September 2024 – Present)"
+    ]
+  }
 };
 
-// Elementos del DOM
-const elements = {
-    sidebarRole: document.getElementById('sidebar-role'),
-    sidebarEmail: document.getElementById('sidebar-email'),
-    sidebarLinkedin: document.getElementById('sidebar-linkedin'),
-    sidebarGithub: document.getElementById('sidebar-github'),
-    sidebarCV: document.getElementById('sidebar-cv'),
-    profileTitle: document.getElementById('profile-title'),
-    profileText: document.getElementById('profile-text'),
-    projectsTitle: document.getElementById('projects-title'),
-    skillsTitle: document.getElementById('skills-title'),
-    educationTitle: document.getElementById('education-title'),
-    experienceTitle: document.getElementById('experience-title'),
-    contactTitle: document.getElementById('contact-title')
+/* --- Elementos a actualizar (textos y anchors) --- */
+const el = {
+  sidebarRole: document.getElementById('sidebar-role'),
+  sidebarEmailText: document.getElementById('sidebar-email'),
+  sidebarLinkedinText: document.getElementById('sidebar-linkedin'),
+  sidebarGithubText: document.getElementById('sidebar-github'),
+  sidebarCVText: document.getElementById('sidebar-cv'),
+  profileTitle: document.getElementById('profile-title'),
+  profileText: document.getElementById('profile-text'),
+  projectsTitle: document.getElementById('projects-title'),
+  skillsTitle: document.getElementById('skills-title'),
+  educationTitle: document.getElementById('education-title'),
+  experienceTitle: document.getElementById('experience-title'),
+  contactTitle: document.getElementById('contact-title'),
+  contactEmailText: document.getElementById('contact-email'),
+  contactCVText: document.getElementById('contact-cv'),
+  eduList: document.getElementById('edu-list'),
+  expList: document.getElementById('exp-list')
 };
 
-// Elemento del link al CV
-const cvLink = document.querySelectorAll('a[href*="cvs/"]');
+/* --- Anchors (para actualizar hrefs) --- */
+const linkEmail = document.getElementById('link-email');
+const linkLinkedin = document.getElementById('link-linkedin');
+const linkGithub = document.getElementById('link-github');
+const linkCV = document.getElementById('link-cv');
 
-// Botones de idioma
+/* --- Botones idioma --- */
 const btnEs = document.getElementById('btnEs');
 const btnEn = document.getElementById('btnEn');
 
 function switchLanguage(lang) {
-    // Cambiar textos
-    for (const key in elements) {
-        if (elements[key]) {
-            elements[key].innerText = translations[lang][key];
-        }
-    }
-    // Cambiar enlaces al CV
-    cvLink.forEach(link => {
-        link.href = translations[lang].cvFile;
-    });
+  const t = translations[lang];
 
-    // Actualizar estado de botones
-    btnEs.classList.remove('active');
-    btnEn.classList.remove('active');
-    if (lang === 'es') btnEs.classList.add('active');
-    if (lang === 'en') btnEn.classList.add('active');
+  // Textos simples
+  el.sidebarRole.textContent = t.sidebarRole;
+  el.sidebarEmailText.textContent = t.sidebarEmail;
+  el.sidebarCVText.textContent = t.sidebarCV;
+  el.profileTitle.textContent = t.profileTitle;
+  el.profileText.textContent = t.profileText;
+  el.projectsTitle.textContent = t.projectsTitle;
+  el.skillsTitle.textContent = t.skillsTitle;
+  el.educationTitle.textContent = t.educationTitle;
+  el.experienceTitle.textContent = t.experienceTitle;
+  el.contactTitle.textContent = t.contactTitle;
+  el.contactEmailText.textContent = t.contactEmail;
+  el.contactCVText.textContent = t.contactCV;
+
+  // Listas (recrear HTML)
+  el.eduList.innerHTML = t.eduList.map(i => `<li>${i}</li>`).join('');
+  el.expList.innerHTML = t.expList.map(i => `<li>${i}</li>`).join('');
+
+  // Hrefs: email y CV (LinkedIn/GitHub normalmente son iguales en ambos idiomas)
+  linkEmail.href = 'mailto:jm.santos.dev@gmail.com';
+  // Si quieres cambiar URL LinkedIn/GitHub por idioma, puedes hacerlo aquí:
+  linkLinkedin.href = 'https://www.linkedin.com/in/juan-manuel-santos-garcia/';
+  linkGithub.href = 'https://github.com/manusantos-dev';
+
+  // CV según idioma:
+  linkCV.href = t.cvFile;
+  // Actualizar también el enlace de descarga en la sección Contacto (si existe)
+  const contactCvAnchor = document.querySelector('section.contact a[href*="cvs/"], a#link-cv');
+  if (contactCvAnchor) contactCvAnchor.href = t.cvFile;
+
+  // Botones visuales
+  btnEs.classList.toggle('active', lang === 'es');
+  btnEn.classList.toggle('active', lang === 'en');
 }
 
-// Eventos
-btnEs.addEventListener('click', () => switchLanguage('es'));
-btnEn.addEventListener('click', () => switchLanguage('en'));
+/* --- Listeners idioma --- */
+btnEs.addEventListener('click', ()=> switchLanguage('es'));
+btnEn.addEventListener('click', ()=> switchLanguage('en'));
 
-// Idioma inicial
+/* --- Sidebar mobile toggle --- */
+const sidebar = document.getElementById('sidebar');
+const openSidebar = document.getElementById('openSidebar');
+const closeSidebar = document.getElementById('closeSidebar');
+
+if (openSidebar && closeSidebar) {
+  openSidebar.addEventListener('click', ()=> sidebar.classList.add('active'));
+  closeSidebar.addEventListener('click', ()=> sidebar.classList.remove('active'));
+}
+
+/* --- Inicial: inglés por defecto --- */
 switchLanguage('en');
 </script>
 </body>
