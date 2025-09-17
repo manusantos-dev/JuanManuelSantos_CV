@@ -66,7 +66,7 @@ h1,h2 { color: var(--primary-color); margin-bottom:10px; }
 ul { list-style: disc; padding-left:20px; }
 ul li { margin-bottom:10px; }
 
-/* Responsive */
+/* Rponsive */
 @media(max-width:900px){
     body { flex-direction:column; }
     .sidebar { position:fixed; top:0; left:0; height:100%; transform:translateX(-100%); z-index:1000; }
@@ -80,12 +80,11 @@ ul li { margin-bottom:10px; }
 
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
-  <i class="fas fa-times sidebar-toggle" id="closeSidebar"></i>
-  <img src="images/foto.jpg" alt="Juan Manuel Santos">
+  <i class="fas fa-tim sidebar-toggle" id="closidebar"></i>
+  <img src="imag/foto.jpg" alt="Juan Manuel Santos">
   <h1>Juan Manuel Santos</h1>
-  <h2 id="sidebar-role">Estudiante de Matemáticas | Programación | Ciberseguridad</h2>
+  <h2 id="sidebar-role">tudiante de Matemáticas | Programación | Ciberseguridad</h2>
 
-  <!-- anchors CON id y span interno para el texto -->
   <a id="link-email" href="mailto:jm.santos.dev@gmail.com">
     <i class="fas fa-envelope"></i><span id="sidebar-email">Correo</span>
   </a>
@@ -98,14 +97,14 @@ ul li { margin-bottom:10px; }
     <i class="fab fa-github"></i><span id="sidebar-github">GitHub</span>
   </a>
 
-  <a id="link-cv" href="cvs/JuanManuelSantos_CV_ES.pdf" target="_blank" rel="noopener noreferrer">
+  <a id="link-cv" href="cvs/JuanManuelSantos_CV_.pdf" target="_blank" rel="noopener noreferrer">
     <i class="fas fa-file-pdf"></i><span id="sidebar-cv">Descargar CV</span>
   </a>
 
   <div>
     <span id="lang-label">Idioma:</span>
-    <button class="lang-btn active" id="btnEs">ES</button>
-    <button class="lang-btn" id="btnEn">EN</button>
+    <button class="lang-btn active" id="btnEn">EN</button>
+    <button class="lang-btn" id="btnEs">ES</button>
   </div>
 </div>
 
@@ -162,16 +161,16 @@ ul li { margin-bottom:10px; }
     <!-- Contacto / Contact -->
     <section class="contact">
         <h2 id="contact-title">Contacto</h2>
-        <a href="mailto:jm.santos.dev@gmail.com"><i class="fas fa-envelope"></i> <span id="contact-email">Correo</span></a>
+        <a href="mailto:jm.santos.dev@gmail.com"><i class="fas fa-envelope"></i> <span id="contact-email"> Correo</span></a>
         <a href="https://www.linkedin.com/in/juan-manuel-santos-garcia/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
         <a href="https://github.com/manusantos-dev" target="_blank"><i class="fab fa-github"></i> GitHub</a>
         <br><br>
-        <a href="cvs/JuanManuelSantos_CV_ES.pdf" target="_blank"><i class="fas fa-file-pdf"></i> <span id="contact-cv">Descargar CV</span></a>
+        <a href="cvs/JuanManuelSantos_CV_ES.pdf" target="_blank"><i class="fas fa-file-pdf"></i> <span id="contact-cv"> Descargar CV</span></a>
     </section>
 </div>
 
 <script>
-/* --- Traducciones (texto + ruta CV) --- */
+/* --- Traducciones --- */
 const translations = {
   es: {
     sidebarRole: "Estudiante de Matemáticas | Programación | Ciberseguridad",
@@ -184,17 +183,19 @@ const translations = {
     educationTitle: "Formación",
     experienceTitle: "Experiencia",
     contactTitle: "Contacto",
+    contactEmail: "Correo",
+    contactCV: "Descargar CV",
     cvFile: "cvs/JuanManuelSantos_CV_ES.pdf",
     eduList: [
       "Universidad de Málaga – Grado en Matemáticas (2021 – Actualidad)",
       "Alliance Française – Francés DELF B1 (2018 – 2019)",
-      "IES Bezmiliana – Bachillerato Tecnológico",
+      "IES Bezmiliana – Bachillerato Tecnológico (2019 - 2021)",
       "Santander Open Academy – Introducción a la Ciencia de Datos (Agosto 2024)",
-      "Google.org & UMA – Cyber Bootcamp (Julio 2024)"
+      "Google.org & UMA – Cyber Bootcamp (Julio 2025)"
     ],
     expList: [
       "Autónomo – Profesor particular (Septiembre 2017 – Actualidad)",
-      "UNITEC Academies, Málaga – Profesor (Septiembre 2024 – Actualidad)"
+      "Academias UNITEC, Málaga – Profesor (Septiembre 2024 – Actualidad)"
     ]
   },
   en: {
@@ -208,13 +209,15 @@ const translations = {
     educationTitle: "Education",
     experienceTitle: "Experience",
     contactTitle: "Contact",
+    contactEmail: "Email",
+    contactCV: "Download CV",
     cvFile: "cvs/JuanManuelSantos_CV_EN.pdf",
     eduList: [
       "University of Málaga – BSc in Mathematics (2021 – Present)",
       "Alliance Française – French DELF B1 (2018 – 2019)",
-      "IES Bezmiliana – Technological Baccalaureate",
+      "IES Bezmiliana – Science & Technology High School Diploma (2019 - 2021)",
       "Santander Open Academy – Introduction to Data Science (August 2024)",
-      "Google.org & UMA – Cyber Bootcamp (July 2024)"
+      "Google.org & UMA – Cyber Bootcamp (July 2025)"
     ],
     expList: [
       "Freelancer – Private Tutor (September 2017 – Present)",
@@ -223,7 +226,6 @@ const translations = {
   }
 };
 
-/* --- Elementos a actualizar (textos y anchors) --- */
 const el = {
   sidebarRole: document.getElementById('sidebar-role'),
   sidebarEmailText: document.getElementById('sidebar-email'),
@@ -239,11 +241,12 @@ const el = {
   contactTitle: document.getElementById('contact-title'),
   contactEmailText: document.getElementById('contact-email'),
   contactCVText: document.getElementById('contact-cv'),
+  contactEmailText: document.getElementById('contact-email'),
+  contactCVText: document.getElementById('contact-cv'),
   eduList: document.getElementById('edu-list'),
   expList: document.getElementById('exp-list')
 };
 
-/* --- Anchors (para actualizar hrefs) --- */
 const linkEmail = document.getElementById('link-email');
 const linkLinkedin = document.getElementById('link-linkedin');
 const linkGithub = document.getElementById('link-github');
@@ -274,9 +277,8 @@ function switchLanguage(lang) {
   el.eduList.innerHTML = t.eduList.map(i => `<li>${i}</li>`).join('');
   el.expList.innerHTML = t.expList.map(i => `<li>${i}</li>`).join('');
 
-  // Hrefs: email y CV (LinkedIn/GitHub normalmente son iguales en ambos idiomas)
+  // Hrefs: email y CV 
   linkEmail.href = 'mailto:jm.santos.dev@gmail.com';
-  // Si quieres cambiar URL LinkedIn/GitHub por idioma, puedes hacerlo aquí:
   linkLinkedin.href = 'https://www.linkedin.com/in/juan-manuel-santos-garcia/';
   linkGithub.href = 'https://github.com/manusantos-dev';
 
