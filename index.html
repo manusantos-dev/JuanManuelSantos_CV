@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Currículum - Juan Manuel Santos</title>
+  <title>Juan Manuel Santos - CV</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -25,6 +25,15 @@
     header h1 {
       margin: 0;
       font-size: 1.8rem;
+    }
+    header p {
+      margin: 0.2rem 0 0 0;
+      font-size: 1rem;
+    }
+    .links a {
+      color: white;
+      margin: 0 0.5rem;
+      text-decoration: none;
     }
     .container {
       max-width: 900px;
@@ -79,20 +88,23 @@
 </head>
 <body>
   <header>
-    <h1>Currículum de Juan Manuel Santos</h1>
+    <h1>Juan Manuel Santos</h1>
+    <p>Mathematics Student | Programming | Cybersecurity</p>
+    <div class="links">
+      <a href="mailto:tuemail@example.com">Email</a> |
+      <a href="https://www.linkedin.com/in/tu-linkedin" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/manusantos-dev" target="_blank">GitHub</a>
+    </div>
   </header>
 
   <div class="container">
-    <!-- Botones para cambiar idioma -->
     <div class="lang-switch">
       <button id="btn-en" class="active">English</button>
       <button id="btn-es">Español</button>
     </div>
 
-    <!-- Visor de PDF -->
     <iframe id="pdf-viewer" src="JuanManuelSantos_CV_EN.pdf" class="pdf-viewer"></iframe>
 
-    <!-- Enlace de descarga -->
     <div class="download-link">
       <a id="download-link" href="JuanManuelSantos_CV_EN.pdf" target="_blank">📄 Download CV</a>
     </div>
