@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,17 +54,71 @@
     .download-link a:hover {
       background: #1e40af;
     }
+    .lang-switch {
+      margin: 1rem 0;
+      text-align: center;
+    }
+    .lang-switch button {
+      background: #e5e7eb;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .lang-switch button.active {
+      background: #2563eb;
+      color: white;
+    }
+    .lang-switch button:hover {
+      background: #d1d5db;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Currículum de Juan Manuel Santos</h1>
   </header>
+
   <div class="container">
-    <iframe src="JuanManuelSantos_CV_ES.pdf" class="pdf-viewer"></iframe>
+    <!-- Botones para cambiar idioma -->
+    <div class="lang-switch">
+      <button id="btn-en" class="active">English</button>
+      <button id="btn-es">Español</button>
+    </div>
+
+    <!-- Visor de PDF -->
+    <iframe id="pdf-viewer" src="JuanManuelSantos_CV_EN.pdf" class="pdf-viewer"></iframe>
+
+    <!-- Enlace de descarga -->
     <div class="download-link">
-      <a href="JuanManuelSantos_CV_ES.pdf" target="_blank">📄 Descargar CV en PDF</a>
+      <a id="download-link" href="JuanManuelSantos_CV_EN.pdf" target="_blank">📄 Download CV</a>
     </div>
   </div>
+
+  <script>
+    const btnEn = document.getElementById('btn-en');
+    const btnEs = document.getElementById('btn-es');
+    const pdfViewer = document.getElementById('pdf-viewer');
+    const downloadLink = document.getElementById('download-link');
+
+    btnEn.addEventListener('click', () => {
+      pdfViewer.src = "JuanManuelSantos_CV_EN.pdf";
+      downloadLink.href = "JuanManuelSantos_CV_EN.pdf";
+      downloadLink.textContent = "📄 Download CV";
+      btnEn.classList.add("active");
+      btnEs.classList.remove("active");
+    });
+
+    btnEs.addEventListener('click', () => {
+      pdfViewer.src = "JuanManuelSantos_CV_ES.pdf";
+      downloadLink.href = "JuanManuelSantos_CV_ES.pdf";
+      downloadLink.textContent = "📄 Descargar CV";
+      btnEs.classList.add("active");
+      btnEn.classList.remove("active");
+    });
+  </script>
 </body>
 </html>
