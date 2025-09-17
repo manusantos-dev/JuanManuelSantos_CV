@@ -8,28 +8,17 @@
 
 <style>
 :root {
-    --primary-color: #4a90e2; /* azul suave */
-    --secondary-color: #f0f4f8; /* fondo claro */
-    --accent-color: #7ed6df; /* acentos suaves */
+    --primary-color: #4a90e2;
+    --secondary-color: #f0f4f8;
+    --accent-color: #7ed6df;
     --text-color: #333;
     --sidebar-bg: #ffffff;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+* { box-sizing: border-box; margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 
-body {
-    display: flex;
-    min-height: 100vh;
-    background: var(--secondary-color);
-    color: var(--text-color);
-}
+body { display:flex; min-height:100vh; background:var(--secondary-color); color:var(--text-color); }
 
-/* Sidebar */
 .sidebar {
     background: var(--sidebar-bg);
     width: 250px;
@@ -42,124 +31,41 @@ body {
     border-right: 1px solid #ddd;
     transition: transform 0.3s ease;
 }
+.sidebar h2 { font-size:1.3rem; margin-bottom:10px; }
+.sidebar a { text-decoration:none; color:var(--text-color); display:flex; align-items:center; gap:10px; padding:5px 0; transition: color 0.2s; }
+.sidebar a:hover { color: var(--primary-color); }
+.sidebar-toggle { display:none; position:absolute; top:20px; left:20px; font-size:1.5rem; cursor:pointer; }
 
-.sidebar h2 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-}
+.main { flex:1; padding:40px 60px; }
+section { margin-bottom:50px; background: #ffffffcc; padding:20px; border-radius:15px; box-shadow:0 6px 15px rgba(0,0,0,0.05); }
+h1,h2 { color: var(--primary-color); }
+.skills span { display:inline-block; background:var(--accent-color); padding:5px 10px; margin:5px; border-radius:8px; font-size:0.9rem; }
 
-.sidebar a {
-    text-decoration: none;
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 5px 0;
-    transition: color 0.2s;
-}
+.pdf-container iframe { width:100%; height:500px; border-radius:10px; border:1px solid #ccc; }
 
-.sidebar a:hover {
-    color: var(--primary-color);
-}
+.lang-btn { cursor:pointer; padding:5px 10px; margin-right:5px; border-radius:5px; border:none; background:var(--accent-color); color:var(--text-color); transition:0.2s; }
+.lang-btn.active, .lang-btn:hover { background: var(--primary-color); color:#fff; }
 
-.sidebar-toggle {
-    display: none;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* Main content */
-.main {
-    flex: 1;
-    padding: 40px 60px;
-}
-
-section {
-    margin-bottom: 50px;
-    background: #ffffffcc;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-}
-
-h1, h2 {
-    color: var(--primary-color);
-}
-
-.skills span {
-    display: inline-block;
-    background: var(--accent-color);
-    padding: 5px 10px;
-    margin: 5px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-}
-
-/* PDF iframe */
-.pdf-container iframe {
-    width: 100%;
-    height: 500px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-}
-
-/* Language buttons */
-.lang-btn {
-    cursor: pointer;
-    padding: 5px 10px;
-    margin-right: 5px;
-    border-radius: 5px;
-    border: none;
-    background: var(--accent-color);
-    color: var(--text-color);
-    transition: 0.2s;
-}
-.lang-btn.active, .lang-btn:hover {
-    background: var(--primary-color);
-    color: #fff;
-}
-
-/* Responsive */
-@media(max-width: 900px){
-    body {
-        flex-direction: column;
-    }
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        transform: translateX(-100%);
-        z-index: 1000;
-    }
-    .sidebar.active {
-        transform: translateX(0);
-    }
-    .sidebar-toggle {
-        display: block;
-    }
-    .main {
-        padding: 20px;
-    }
-    .pdf-container iframe {
-        height: 300px;
-    }
+@media(max-width:900px){
+    body { flex-direction:column; }
+    .sidebar { position:fixed; top:0; left:0; height:100%; transform:translateX(-100%); z-index:1000; }
+    .sidebar.active { transform:translateX(0); }
+    .sidebar-toggle { display:block; }
+    .main { padding:20px; }
+    .pdf-container iframe { height:300px; }
 }
 </style>
 </head>
 <body>
 
+<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <i class="fas fa-times sidebar-toggle" id="closeSidebar"></i>
     <h2 id="sidebar-role">Estudiante de Matemáticas | Programación | Ciberseguridad</h2>
-    <a href="mailto:jm.santos.dev@gmail.com" id="sidebar-email"><i class="fas fa-envelope"></i>Correo</a>
-    <a href="#" id="sidebar-linkedin"><i class="fab fa-linkedin"></i>LinkedIn</a>
-    <a href="#" id="sidebar-github"><i class="fab fa-github"></i>GitHub</a>
-    <a href="#" id="sidebar-cv"><i class="fas fa-file-pdf"></i>CV</a>
-    <a href="#" id="sidebar-skills"><i class="fas fa-code"></i>Habilidades</a>
+    <a href="mailto:jm.santos.dev@gmail.com"><i class="fas fa-envelope"></i>Correo</a>
+    <a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a>
+    <a href="#"><i class="fab fa-github"></i>GitHub</a>
+    <a href="#"><i class="fas fa-file-pdf"></i>CV</a>
     <div>
         <span id="lang-label">Idioma:</span>
         <button class="lang-btn active" id="btnEn">EN</button>
@@ -169,39 +75,78 @@ h1, h2 {
 
 <i class="fas fa-bars sidebar-toggle" id="openSidebar"></i>
 
+<!-- Main content -->
 <div class="main">
+
+    <!-- Sobre mí / Profile -->
     <section>
         <h2 id="profile-title">Sobre mí</h2>
-        <p id="profile-text">Apasionado por la ciberseguridad...</p>
+        <p id="profile-text">Apasionado por la ciberseguridad, con una base sólida en lógica, programación y pensamiento analítico. Actualmente enfocado en desarrollar mis conocimientos en seguridad informática. Perfil autodidacta, con experiencia docente en informática y buen manejo de Python. Busco un entorno técnico en el que seguir creciendo y consolidando mi carrera en el ámbito de la ciberseguridad.</p>
     </section>
 
+    <!-- Formación / Education -->
     <section>
         <h2 id="education-title">Formación</h2>
         <ul id="edu-list">
-            <li>Universidad de Málaga – Grado en Matemáticas (2021 – Actualidad)</li>
+            <li>Universidad de Málaga – Grado en Matemáticas (2021 – Actualidad)<br>
+            Interés especial en álgebra, geometría y topología, con atención a sus fundamentos teóricos y aplicaciones.<br>
+            Buen dominio de la optimización, probabilidad y estadística.<br>
+            Formación práctica en programación con Haskell, Scala y Python, aplicada a contextos matemáticos y computacionales.</li>
+            <li>Alliance Française – Francés DELF B1 (2018 – 2019)</li>
+            <li>IES Bezmiliana – Bachillerato Tecnológico</li>
+            <li>Santander Open Academy – Introducción a la Ciencia de Datos (Agosto 2024)<br>
+            Análisis exploratorio, visualización y modelado predictivo con Python.</li>
+            <li>Google.org & UMA – Cyber Bootcamp (Julio 2024)<br>
+            Formación intensiva en ciberseguridad: seguridad en redes, criptografía, privacidad digital y gestión de riesgos.<br>
+            Talleres prácticos de hacking ético y respuesta a incidentes en entornos simulados.<br>
+            Aplicación de conocimientos en actividades colaborativas con impacto local.</li>
         </ul>
     </section>
 
+    <!-- Experiencia / Experience -->
     <section>
         <h2 id="experience-title">Experiencia</h2>
         <ul id="exp-list">
-            <li>Autónomo – Profesor particular (Septiembre 2017 – Actualidad)</li>
+            <li>Autónomo – Profesor particular (Septiembre 2017 – Actualidad)<br>
+            Clases de apoyo en Matemáticas para ESO y Bachillerato.<br>
+            Desde 2022, clases particulares a nivel universitario en Geometría e Informática (Haskell y Scala).</li>
+            <li>UNITEC Academies, Málaga – Profesor (Septiembre 2024 – Actualidad)<br>
+            Docencia en asignaturas de Geometría y Programación (Python, Haskell y Scala) para estudiantes de primer curso del Grado en Matemáticas.</li>
         </ul>
     </section>
 
+    <!-- Habilidades Técnicas / Skills -->
     <section>
         <h2 id="skills-title">Habilidades Técnicas</h2>
         <div class="skills" id="skills-list">
-            <span><i class="fab fa-python"></i>Python</span>
-            <span><i class="fas fa-cogs"></i>Scala</span>
+            <span><i class="fab fa-python"></i> Python</span>
+            <span><i class="fas fa-cogs"></i> Scala</span>
+            <span><i class="fas fa-cogs"></i> Haskell</span>
+            <span>RStudio</span>
+            <span>Mathematica</span>
+            <span>Jupyter Notebook</span>
+            <span>Anaconda</span>
+            <span>LaTeX</span>
         </div>
     </section>
 
+    <!-- Idiomas / Languages -->
+    <section>
+        <h2 id="languages-title">Idiomas</h2>
+        <ul id="lang-list">
+            <li>Español – Nativo</li>
+            <li>Inglés – Intermedio alto</li>
+            <li>Francés – Nivel DELF B1</li>
+        </ul>
+    </section>
+
+    <!-- CV -->
     <section class="pdf-container">
         <h2 id="cv-title">Currículum Vitae</h2>
         <iframe src="JuanManuelSantos_CV_ES.pdf" id="pdf-viewer"></iframe>
         <a href="JuanManuelSantos_CV_ES.pdf" target="_blank" id="download-link">📄 Descargar CV</a>
     </section>
+
 </div>
 
 <script>
@@ -210,16 +155,40 @@ const sidebar = document.getElementById('sidebar');
 document.getElementById('openSidebar').addEventListener('click', ()=> sidebar.classList.add('active'));
 document.getElementById('closeSidebar').addEventListener('click', ()=> sidebar.classList.remove('active'));
 
-// Language switcher example (simplified)
+// Language switcher (simplificado)
 const btnEn = document.getElementById('btnEn');
 const btnEs = document.getElementById('btnEs');
+
 btnEn.addEventListener('click', ()=>{
     btnEn.classList.add('active'); btnEs.classList.remove('active');
+
+    // Sidebar
+    document.getElementById('sidebar-role').textContent = "Mathematics Student | Programming | Cybersecurity";
+
+    // Sections
     document.getElementById('profile-title').textContent = "Profile";
+    document.getElementById('profile-text').textContent = "Passionate about cybersecurity with a solid foundation in logic, programming, and analytical thinking. Currently focused on developing knowledge in information security. Self-taught profile, with teaching experience in IT and strong Python skills. Seeking a technical environment to continue growing and consolidating my career in cybersecurity.";
+
+    document.getElementById('education-title').textContent = "Education";
+    document.getElementById('experience-title').textContent = "Experience";
+    document.getElementById('skills-title').textContent = "Technical Skills";
+    document.getElementById('languages-title').textContent = "Languages";
+    document.getElementById('cv-title').textContent = "Curriculum Vitae";
 });
+
 btnEs.addEventListener('click', ()=>{
     btnEs.classList.add('active'); btnEn.classList.remove('active');
+
+    document.getElementById('sidebar-role').textContent = "Estudiante de Matemáticas | Programación | Ciberseguridad";
+
     document.getElementById('profile-title').textContent = "Sobre mí";
+    document.getElementById('profile-text').textContent = "Apasionado por la ciberseguridad, con una base sólida en lógica, programación y pensamiento analítico. Actualmente enfocado en desarrollar mis conocimientos en seguridad informática. Perfil autodidacta, con experiencia docente en informática y buen manejo de Python. Busco un entorno técnico en el que seguir creciendo y consolidando mi carrera en el ámbito de la ciberseguridad.";
+
+    document.getElementById('education-title').textContent = "Formación";
+    document.getElementById('experience-title').textContent = "Experiencia";
+    document.getElementById('skills-title').textContent = "Habilidades Técnicas";
+    document.getElementById('languages-title').textContent = "Idiomas";
+    document.getElementById('cv-title').textContent = "Currículum Vitae";
 });
 </script>
 
