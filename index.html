@@ -162,6 +162,8 @@ const translations = {
     es: {
         sidebarRole: "Estudiante de Matemáticas | Programación | Ciberseguridad",
         sidebarEmail: "Correo",
+        sidebarLinkedin: "LinkedIn",
+        sidebarGithub: "GitHub",
         sidebarCV: "Descargar CV",
         profileTitle: "Sobre mí",
         profileText: "Apasionado por la ciberseguridad, con una base sólida en lógica, programación y pensamiento analítico. Actualmente enfocado en desarrollar mis conocimientos en seguridad informática. Perfil autodidacta, con experiencia docente en informática y buen manejo de Python. Busco un entorno técnico en el que seguir creciendo y consolidando mi carrera en el ámbito de la ciberseguridad.",
@@ -170,51 +172,31 @@ const translations = {
         educationTitle: "Formación",
         experienceTitle: "Experiencia",
         contactTitle: "Contacto",
-        contactEmail: "Correo",
-        contactCV: "Descargar CV",
-        eduList: [
-            "Universidad de Málaga – Grado en Matemáticas (2021 – Actualidad)",
-            "Alliance Française – Francés DELF B1 (2018 – 2019)",
-            "IES Bezmiliana – Bachillerato Tecnológico",
-            "Santander Open Academy – Introducción a la Ciencia de Datos (Agosto 2024)",
-            "Google.org & UMA – Cyber Bootcamp (Julio 2024)"
-        ],
-        expList: [
-            "Autónomo – Profesor particular (Septiembre 2017 – Actualidad)",
-            "UNITEC Academies, Málaga – Profesor (Septiembre 2024 – Actualidad)"
-        ]
+        cvFile: "cvs/JuanManuelSantos_CV_ES.pdf"
     },
     en: {
         sidebarRole: "Mathematics Student | Programming | Cybersecurity",
         sidebarEmail: "Email",
+        sidebarLinkedin: "LinkedIn",
+        sidebarGithub: "GitHub",
         sidebarCV: "Download CV",
         profileTitle: "Profile",
-        profileText: "Passionate about cybersecurity with a solid foundation in logic, programming, and analytical thinking. Currently focused on developing my knowledge in information security. Self-taught, with teaching experience in computing and strong Python skills. Looking for a technical environment to continue growing and consolidating my career in cybersecurity.",
+        profileText: "Passionate about cybersecurity with a solid foundation in logic, programming, and analytical thinking. Currently focused on developing my knowledge in information security. Self-taught profile, with teaching experience in computing and strong Python skills. Looking for a technical environment to continue growing and consolidating my career in cybersecurity.",
         projectsTitle: "Highlighted Projects",
         skillsTitle: "Technical Skills",
         educationTitle: "Education",
         experienceTitle: "Experience",
         contactTitle: "Contact",
-        contactEmail: "Email",
-        contactCV: "Download CV",
-        eduList: [
-            "University of Málaga – BSc in Mathematics (2021 – Present)",
-            "Alliance Française – French DELF B1 (2018 – 2019)",
-            "IES Bezmiliana – Technological Baccalaureate",
-            "Santander Open Academy – Introduction to Data Science (August 2024)",
-            "Google.org & UMA – Cyber Bootcamp (July 2024)"
-        ],
-        expList: [
-            "Freelancer – Private Tutor (September 2017 – Present)",
-            "UNITEC Academies, Málaga – Teacher (September 2024 – Present)"
-        ]
+        cvFile: "cvs/JuanManuelSantos_CV_EN.pdf"
     }
 };
 
-// Elementos
+// Elementos del DOM
 const elements = {
     sidebarRole: document.getElementById('sidebar-role'),
     sidebarEmail: document.getElementById('sidebar-email'),
+    sidebarLinkedin: document.getElementById('sidebar-linkedin'),
+    sidebarGithub: document.getElementById('sidebar-github'),
     sidebarCV: document.getElementById('sidebar-cv'),
     profileTitle: document.getElementById('profile-title'),
     profileText: document.getElementById('profile-text'),
@@ -222,46 +204,41 @@ const elements = {
     skillsTitle: document.getElementById('skills-title'),
     educationTitle: document.getElementById('education-title'),
     experienceTitle: document.getElementById('experience-title'),
-    contactTitle: document.getElementById('contact-title'),
-    contactEmail: document.getElementById('contact-email'),
-    contactCV: document.getElementById('contact-cv'),
-    eduList: document.getElementById('edu-list'),
-    expList: document.getElementById('exp-list')
+    contactTitle: document.getElementById('contact-title')
 };
 
-// Función de idioma
-function switchLanguage(lang) {
-    for (const key in elements) {
-        if (translations[lang][key] && typeof translations[lang][key] === 'string') {
-            elements[key].textContent = translations[lang][key];
-        }
-    }
-    // Listas dinámicas
-    elements.eduList.innerHTML = translations[lang].eduList.map(item => `<li>${item}</li>`).join('');
-    elements.expList.innerHTML = translations[lang].expList.map(item => `<li>${item}</li>`).join('');
+// Elemento del link al CV
+const cvLink = document.querySelectorAll('a[href*="cvs/"]');
 
-    // Botones
-    btnEs.classList.remove('active');
-    btnEn.classList.remove('active');
-    if(lang==='es') btnEs.classList.add('active');
-    if(lang==='en') btnEn.classList.add('active');
-}
-
-// Eventos idioma
+// Botones de idioma
 const btnEs = document.getElementById('btnEs');
 const btnEn = document.getElementById('btnEn');
-btnEs.addEventListener('click', ()=> switchLanguage('es'));
-btnEn.addEventListener('click', ()=> switchLanguage('en'));
 
-// Sidebar en móvil
-const sidebar = document.getElementById('sidebar');
-const openSidebar = document.getElementById('openSidebar');
-const closeSidebar = document.getElementById('closeSidebar');
-openSidebar.addEventListener('click', ()=> sidebar.classList.add('active'));
-closeSidebar.addEventListener('click', ()=> sidebar.classList.remove('active'));
+function switchLanguage(lang) {
+    // Cambiar textos
+    for (const key in elements) {
+        if (elements[key]) {
+            elements[key].innerText = translations[lang][key];
+        }
+    }
+    // Cambiar enlaces al CV
+    cvLink.forEach(link => {
+        link.href = translations[lang].cvFile;
+    });
+
+    // Actualizar estado de botones
+    btnEs.classList.remove('active');
+    btnEn.classList.remove('active');
+    if (lang === 'es') btnEs.classList.add('active');
+    if (lang === 'en') btnEn.classList.add('active');
+}
+
+// Eventos
+btnEs.addEventListener('click', () => switchLanguage('es'));
+btnEn.addEventListener('click', () => switchLanguage('en'));
 
 // Idioma inicial
-switchLanguage('es'); 
+switchLanguage('en');
 </script>
 </body>
 </html>
