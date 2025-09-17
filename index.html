@@ -62,6 +62,17 @@ h1,h2 { color: var(--primary-color); margin-bottom:10px; }
 .lang-btn { cursor:pointer; padding:5px 10px; margin-right:5px; border-radius:5px; border:none; background:var(--accent-color); color:var(--text-color); transition:0.2s; }
 .lang-btn.active, .lang-btn:hover { background: var(--primary-color); color:#fff; }
 
+/* Botón abrir sidebar */
+#openSidebar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1100; /* más alto que el contenido */
+    color: var(--primary-color);
+}
+    
 /* Lists */
 ul { list-style: disc; padding-left:20px; }
 ul li { margin-bottom:10px; }
