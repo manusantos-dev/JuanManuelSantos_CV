@@ -1,136 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juan Manuel Santos - CV</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9fafb;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    header {
-      background: #2563eb;
-      color: white;
-      width: 100%;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    header p {
-      margin: 0.2rem 0 0 0;
-      font-size: 1rem;
-    }
-    .links a {
-      color: white;
-      margin: 0 0.5rem;
-      text-decoration: none;
-    }
-    .container {
-      max-width: 900px;
-      width: 100%;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-    .pdf-viewer {
-      width: 100%;
-      height: 80vh;
-      border: none;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-    .download-link {
-      margin-top: 1rem;
-      text-align: center;
-    }
-    .download-link a {
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      transition: background 0.3s;
-    }
-    .download-link a:hover {
-      background: #1e40af;
-    }
-    .lang-switch {
-      margin: 1rem 0;
-      text-align: center;
-    }
-    .lang-switch button {
-      background: #e5e7eb;
-      border: none;
-      padding: 0.5rem 1rem;
-      margin: 0 0.5rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .lang-switch button.active {
-      background: #2563eb;
-      color: white;
-    }
-    .lang-switch button:hover {
-      background: #d1d5db;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juan Manuel Santos - Portfolio</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+/* RESET & BASE */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f9fafb; color: #333; display: flex; }
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  background: #2563eb;
+  color: white;
+  height: 100vh;
+  position: fixed;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar h1 { font-size: 1.5rem; margin-bottom: 0.5rem; text-align: center; }
+.sidebar p { font-size: 0.9rem; text-align: center; margin-bottom: 1.5rem; }
+.sidebar a { color: white; text-decoration: none; margin: 0.5rem 0; display: flex; align-items: center; }
+.sidebar a i { margin-right: 0.5rem; transition: transform 0.3s; }
+.sidebar a:hover i { transform: translateX(5px); }
+
+/* MAIN CONTENT */
+.main {
+  margin-left: 260px;
+  padding: 2rem;
+  flex: 1;
+}
+
+/* LANG SWITCH */
+.lang-switch { text-align: right; margin-bottom: 1rem; }
+.lang-switch button {
+  background: #e5e7eb; border: none; padding: 0.4rem 0.8rem; margin-left: 0.5rem;
+  border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.3s;
+}
+.lang-switch button.active { background: #2563eb; color: white; }
+.lang-switch button:hover { background: #d1d5db; }
+
+/* SECTIONS */
+section { margin-bottom: 2rem; }
+section h2 { color: #2563eb; margin-bottom: 0.8rem; border-bottom: 2px solid #2563eb; display: inline-block; padding-bottom: 0.2rem; }
+
+/* SKILLS */
+.skills i { margin-right: 0.5rem; font-size: 1.2rem; color: #2563eb; }
+.skills span { margin-right: 1rem; }
+
+/* PDF Viewer */
+.pdf-viewer { width: 100%; height: 80vh; border: none; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-top: 1rem; }
+
+/* DOWNLOAD BUTTON */
+.download-link a {
+  display: inline-block; margin-top: 0.8rem; padding: 0.6rem 1.2rem; border-radius: 6px;
+  background: #2563eb; color: white; text-decoration: none; transition: background 0.3s;
+}
+.download-link a:hover { background: #1e40af; }
+
+/* RESPONSIVE */
+@media(max-width: 900px){
+  body { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; flex-direction: row; justify-content: space-around; padding: 1rem; }
+  .main { margin-left: 0; }
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1>Juan Manuel Santos</h1>
-    <p>Mathematics Student | Programming | Cybersecurity</p>
-    <div class="links">
-      <a href="mailto:tuemail@example.com">Email</a> |
-      <a href="https://www.linkedin.com/in/tu-linkedin" target="_blank">LinkedIn</a> |
-      <a href="https://github.com/manusantos-dev" target="_blank">GitHub</a>
-    </div>
-  </header>
 
-  <div class="container">
-    <div class="lang-switch">
-      <button id="btn-en" class="active">English</button>
-      <button id="btn-es">Español</button>
-    </div>
+<div class="sidebar">
+  <h1>Juan Manuel Santos</h1>
+  <p>Mathematics Student | Programming | Cybersecurity</p>
+  <a href="mailto:jm.santos.dev@gmail.com"><i class="fas fa-envelope"></i>Email</a>
+  <a href="https://www.linkedin.com/in/usuario" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+  <a href="https://github.com/manusantos-dev" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+  <a href="#cv"><i class="fas fa-file-pdf"></i>CV</a>
+  <a href="#skills"><i class="fas fa-code"></i>Skills</a>
+</div>
 
+<div class="main">
+  <div class="lang-switch">
+    <span>Language:</span>
+    <button id="btn-en" class="active">English</button>
+    <button id="btn-es">Español</button>
+  </div>
+
+  <section id="profile">
+    <h2>Profile</h2>
+    <p id="profile-text">Passionate about cybersecurity, with a strong foundation in logic, programming, and analytical thinking. Currently focused on expanding my knowledge in information security. Self-motivated and experienced in teaching computer science, with solid skills in Python. Looking for a technical environment where I can continue growing and building my career in the field of cybersecurity.</p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ul id="edu-list">
+      <li><strong>University of Málaga – Bachelor’s Degree in Mathematics</strong> (2021 – Present)<br>Special interest in algebra, geometry, and topology, focusing on theoretical foundations and applications. Strong skills in optimization, probability, and statistics. Hands-on experience in programming with Haskell, Scala, and Python.</li>
+      <li><strong>IES Bezmiliana – Science & Technology High School Diploma</strong></li>
+      <li><strong>Santander Open Academy – Introduction to Data Science</strong> (August 2024)<br>Exploratory analysis, data visualization, and predictive modeling using Python.</li>
+      <li><strong>Google.org & UMA – Cyber Bootcamp</strong> (July 2024)<br>Intensive training in cybersecurity: network security, cryptography, digital privacy, and risk management. Hands-on workshops in ethical hacking and incident response. Applied knowledge in collaborative activities with local impact.</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul id="exp-list">
+      <li><strong>Freelance – Private Tutor</strong> (September 2017 – Present)<br>Tutoring Mathematics for secondary and high school students. Since 2022, university-level lessons in Geometry and Computer Science (Haskell & Scala).</li>
+      <li><strong>UNITEC Academies, Málaga – Teacher</strong> (September 2024 – Present)<br>Teaching Geometry and Programming (Python, Haskell, Scala) to first-year Mathematics undergraduates.</li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <span><i class="fab fa-python"></i>Python</span>
+      <span><i class="fas fa-cogs"></i>Scala</span>
+      <span><i class="fas fa-cogs"></i>Haskell</span>
+      <span><i class="fas fa-file-alt"></i>LaTeX</span>
+      <span><i class="fas fa-laptop-code"></i>RStudio</span>
+      <span><i class="fas fa-laptop-code"></i>Jupyter Notebook</span>
+      <span><i class="fas fa-laptop-code"></i>Anaconda</span>
+    </div>
+  </section>
+
+  <section id="cv">
+    <h2>Curriculum Vitae</h2>
     <iframe id="pdf-viewer" src="JuanManuelSantos_CV_EN.pdf" class="pdf-viewer"></iframe>
-
     <div class="download-link">
       <a id="download-link" href="JuanManuelSantos_CV_EN.pdf" target="_blank">📄 Download CV</a>
     </div>
-  </div>
+  </section>
+</div>
 
-  <script>
-    const btnEn = document.getElementById('btn-en');
-    const btnEs = document.getElementById('btn-es');
-    const pdfViewer = document.getElementById('pdf-viewer');
-    const downloadLink = document.getElementById('download-link');
+<script>
+const btnEn = document.getElementById('btn-en');
+const btnEs = document.getElementById('btn-es');
+const profileText = document.getElementById('profile-text');
+const pdfViewer = document.getElementById('pdf-viewer');
+const downloadLink = document.getElementById('download-link');
+const eduList = document.getElementById('edu-list');
+const expList = document.getElementById('exp-list');
 
-    btnEn.addEventListener('click', () => {
-      pdfViewer.src = "JuanManuelSantos_CV_EN.pdf";
-      downloadLink.href = "JuanManuelSantos_CV_EN.pdf";
-      downloadLink.textContent = "📄 Download CV";
-      btnEn.classList.add("active");
-      btnEs.classList.remove("active");
-    });
-
-    btnEs.addEventListener('click', () => {
-      pdfViewer.src = "JuanManuelSantos_CV_ES.pdf";
-      downloadLink.href = "JuanManuelSantos_CV_ES.pdf";
-      downloadLink.textContent = "📄 Descargar CV";
-      btnEs.classList.add("active");
-      btnEn.classList.remove("active");
-    });
-  </script>
-</body>
-</html>
+btnEn.addEventListener('click', () => {
+  btnEn.classList.add('active'); btnEs.classList.remove('active');
+  profileText.textContent = "Passionate about cybersecurity, with a strong foundation in logic, programming, and analytical thinking. Currently focused on expanding my knowledge in information security. Self-motivated and experienced in teaching computer science, with solid skills in Python. Looking for a technical environment where I can continue growing and building my career in the field of cybersecurity.";
+  pdfViewer.src = "JuanManuelSantos_CV_EN.pdf";
+  downloadLink.href = "JuanManuelSantos_CV_EN.pdf";
+  downloadLink.textContent = "📄 Download CV";
+  eduList.innerHTML = `<li><strong>University of Málaga – Bachelor’s Degree in Mathematics</strong> (2021 – Present)<br>Special interest in algebra, geometry, and topology, focusing on theoretical foundations and applications. Strong skills in optimization, probability, and statistics. Hands-on experience in programming with Haskell, Scala, and Python.</li>
+<li><strong>IES Bezmiliana – Science & Technology High School Diploma</strong></li>
+<li><strong>Santander Open Academy – Introduction to Data Science</strong> (August 2024)<br>Exploratory analysis, data visualization, and predictive modeling using Python.</li>
+<li><strong>Google.org
