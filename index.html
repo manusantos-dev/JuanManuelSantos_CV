@@ -148,12 +148,63 @@ const pdfViewer = document.getElementById('pdf-viewer');
 const downloadLink = document.getElementById('download-link');
 const eduList = document.getElementById('edu-list');
 const expList = document.getElementById('exp-list');
+const skillsDiv = document.querySelector('.skills');
+
+const content = {
+  en: {
+    profile: "Passionate about cybersecurity, with a strong foundation in logic, programming, and analytical thinking. Currently focused on expanding my knowledge in information security. Self-motivated and experienced in teaching computer science, with solid skills in Python. Looking for a technical environment where I can continue growing and building my career in the field of cybersecurity.",
+    education: `<li><strong>University of Málaga – Bachelor’s Degree in Mathematics</strong> (2021 – Present)<br>Special interest in algebra, geometry, and topology, focusing on theoretical foundations and applications. Strong skills in optimization, probability, and statistics. Hands-on experience in programming with Haskell, Scala, and Python.</li>
+<li><strong>IES Bezmiliana – Science & Technology High School Diploma</strong></li>
+<li><strong>Santander Open Academy – Introduction to Data Science</strong> (August 2024)<br>Exploratory analysis, data visualization, and predictive modeling using Python.</li>
+<li><strong>Google.org & UMA – Cyber Bootcamp</strong> (July 2024)<br>Intensive training in cybersecurity: network security, cryptography, digital privacy, and risk management. Hands-on workshops in ethical hacking and incident response. Applied knowledge in collaborative activities with local impact.</li>`,
+    experience: `<li><strong>Freelance – Private Tutor</strong> (September 2017 – Present)<br>Tutoring Mathematics for secondary and high school students. Since 2022, university-level lessons in Geometry and Computer Science (Haskell & Scala).</li>
+<li><strong>UNITEC Academies, Málaga – Teacher</strong> (September 2024 – Present)<br>Teaching Geometry and Programming (Python, Haskell, Scala) to first-year Mathematics undergraduates.</li>`,
+    skills: `<span><i class="fab fa-python" style="color:#306998;"></i>Python</span>
+<span><i class="fas fa-cogs" style="color:#7876D4;"></i>Scala</span>
+<span><i class="fas fa-cogs" style="color:#5E5086;"></i>Haskell</span>
+<span><i class="fas fa-file-alt" style="color:#000000;"></i>LaTeX</span>
+<span><i class="fas fa-laptop-code" style="color:#1DA1F2;"></i>RStudio</span>
+<span><i class="fas fa-laptop-code" style="color:#FF9900;"></i>Jupyter Notebook</span>
+<span><i class="fas fa-laptop-code" style="color:#44A7B3;"></i>Anaconda</span>`
+  },
+  es: {
+    profile: "Apasionado por la ciberseguridad, con una base sólida en lógica, programación y pensamiento analítico. Actualmente enfocado en desarrollar mis conocimientos en seguridad informática. Perfil autodidacta, con experiencia docente en informática y buen manejo de Python. Busco un entorno técnico en el que seguir creciendo y consolidando mi carrera en el ámbito de la ciberseguridad.",
+    education: `<li><strong>Universidad de Málaga – Grado en Matemáticas</strong> (2021 – Actualidad)<br>Interés especial en álgebra, geometría y topología, con atención a sus fundamentos teóricos y aplicaciones. Buen dominio de optimización, probabilidad y estadística. Formación práctica en programación con Haskell, Scala y Python.</li>
+<li><strong>IES Bezmiliana – Bachillerato Tecnológico</strong></li>
+<li><strong>Santander Open Academy – Introducción a la Ciencia de Datos</strong> (Agosto 2024)<br>Análisis exploratorio, visualización y modelado predictivo con Python.</li>
+<li><strong>Google.org & UMA – Cyber Bootcamp</strong> (Julio 2024)<br>Formación intensiva en ciberseguridad: seguridad en redes, criptografía, privacidad digital y gestión de riesgos. Talleres prácticos de hacking ético y respuesta a incidentes. Aplicación de conocimientos en actividades colaborativas con impacto local.</li>`,
+    experience: `<li><strong>Autónomo – Profesor particular</strong> (Septiembre 2017 – Actualidad)<br>Clases de apoyo en Matemáticas para ESO y Bachillerato. Desde 2022, clases a nivel universitario en Geometría e Informática (Haskell y Scala).</li>
+<li><strong>Academias UNITEC, Málaga – Profesor</strong> (Septiembre 2024 – Actualidad)<br>Docencia en asignaturas de Geometría y Programación (Python, Haskell y Scala) para estudiantes de primer curso del Grado en Matemáticas.</li>`,
+    skills: `<span><i class="fab fa-python" style="color:#306998;"></i>Python</span>
+<span><i class="fas fa-cogs" style="color:#7876D4;"></i>Scala</span>
+<span><i class="fas fa-cogs" style="color:#5E5086;"></i>Haskell</span>
+<span><i class="fas fa-file-alt" style="color:#000000;"></i>LaTeX</span>
+<span><i class="fas fa-laptop-code" style="color:#1DA1F2;"></i>RStudio</span>
+<span><i class="fas fa-laptop-code" style="color:#FF9900;"></i>Jupyter Notebook</span>
+<span><i class="fas fa-laptop-code" style="color:#44A7B3;"></i>Anaconda</span>`
+  }
+};
 
 btnEn.addEventListener('click', () => {
   btnEn.classList.add('active'); btnEs.classList.remove('active');
-  profileText.textContent = "Passionate about cybersecurity, with a strong foundation in logic, programming, and analytical thinking. Currently focused on expanding my knowledge in information security. Self-motivated and experienced in teaching computer science, with solid skills in Python. Looking for a technical environment where I can continue growing and building my career in the field of cybersecurity.";
+  profileText.innerHTML = content.en.profile;
+  eduList.innerHTML = content.en.education;
+  expList.innerHTML = content.en.experience;
+  skillsDiv.innerHTML = content.en.skills;
   pdfViewer.src = "JuanManuelSantos_CV_EN.pdf";
   downloadLink.href = "JuanManuelSantos_CV_EN.pdf";
   downloadLink.textContent = "📄 Download CV";
-  eduList.innerHTML = `<li><strong>University of Málaga – Bachelor’s Degree in Mathematics</strong> (2021 – Present)<br>Special interest in algebra, geometry, and topology, focusing on theoretical foundations and applications. Strong skills in optimization, probability, and statistics. Hands-on experience in programming with Haskell, Scala, and Python.</li>
-<li><strong>IES Bezmiliana
+});
+
+btnEs.addEventListener('click', () => {
+  btnEs.classList.add('active'); btnEn.classList.remove('active');
+  profileText.innerHTML = content.es.profile;
+  eduList.innerHTML = content.es.education;
+  expList.innerHTML = content.es.experience;
+  skillsDiv.innerHTML = content.es.skills;
+  pdfViewer.src = "JuanManuelSantos_CV_ES.pdf";
+  downloadLink.href = "JuanManuelSantos_CV_ES.pdf";
+  downloadLink.textContent = "📄 Descargar CV";
+});
+</script>
+
