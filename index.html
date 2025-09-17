@@ -30,8 +30,11 @@ body { display:flex; min-height:100vh; background:var(--secondary-color); color:
     gap: 20px;
     border-right: 1px solid #ddd;
     transition: transform 0.3s ease;
+    align-items: center;
 }
-.sidebar h2 { font-size:1.3rem; margin-bottom:10px; }
+.sidebar img { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:10px; }
+.sidebar h1 { font-size:1.5rem; text-align:center; }
+.sidebar h2 { font-size:1.2rem; text-align:center; margin-bottom:10px; }
 .sidebar a { text-decoration:none; color:var(--text-color); display:flex; align-items:center; gap:10px; padding:5px 0; transition: color 0.2s; }
 .sidebar a:hover { color: var(--primary-color); }
 .sidebar-toggle { display:none; position:absolute; top:20px; left:20px; font-size:1.5rem; cursor:pointer; }
@@ -39,6 +42,7 @@ body { display:flex; min-height:100vh; background:var(--secondary-color); color:
 .main { flex:1; padding:40px 60px; }
 section { margin-bottom:50px; background: #ffffffcc; padding:20px; border-radius:15px; box-shadow:0 6px 15px rgba(0,0,0,0.05); }
 h1,h2 { color: var(--primary-color); margin-bottom:10px; }
+
 .skills-grid { display:flex; flex-wrap:wrap; gap:15px; margin-top:10px; }
 .skills-grid .skill { display:flex; flex-direction:column; align-items:center; width:80px; font-size:0.85rem; text-align:center; }
 .skills-grid .skill img { width:40px; height:40px; margin-bottom:5px; }
@@ -49,6 +53,9 @@ h1,h2 { color: var(--primary-color); margin-bottom:10px; }
 
 .lang-btn { cursor:pointer; padding:5px 10px; margin-right:5px; border-radius:5px; border:none; background:var(--accent-color); color:var(--text-color); transition:0.2s; }
 .lang-btn.active, .lang-btn:hover { background: var(--primary-color); color:#fff; }
+
+ul { list-style:none; padding-left:0; }
+ul li { margin-bottom:10px; }
 
 @media(max-width:900px){
     body { flex-direction:column; }
@@ -64,11 +71,13 @@ h1,h2 { color: var(--primary-color); margin-bottom:10px; }
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <i class="fas fa-times sidebar-toggle" id="closeSidebar"></i>
+    <img src="foto.jpg" alt="Juan Manuel Santos">
+    <h1>Juan Manuel Santos</h1>
     <h2 id="sidebar-role">Estudiante de Matemáticas | Programación | Ciberseguridad</h2>
-    <a href="mailto:jm.santos.dev@gmail.com"><i class="fas fa-envelope"></i>Correo</a>
-    <a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a>
-    <a href="#"><i class="fab fa-github"></i>GitHub</a>
-    <a href="JuanManuelSantos_CV_ES.pdf" target="_blank"><i class="fas fa-file-pdf"></i>Descargar CV</a>
+    <a href="mailto:jm.santos.dev@gmail.com"><i class="fas fa-envelope"></i><span id="sidebar-email">Correo</span></a>
+    <a href="#"><i class="fab fa-linkedin"></i><span id="sidebar-linkedin">LinkedIn</span></a>
+    <a href="#"><i class="fab fa-github"></i><span id="sidebar-github">GitHub</span></a>
+    <a href="JuanManuelSantos_CV_ES.pdf" target="_blank"><i class="fas fa-file-pdf"></i><span id="sidebar-cv">Descargar CV</span></a>
     <div>
         <span id="lang-label">Idioma:</span>
         <button class="lang-btn active" id="btnEn">EN</button>
@@ -89,16 +98,15 @@ h1,h2 { color: var(--primary-color); margin-bottom:10px; }
     <!-- Proyectos / Projects -->
     <section>
         <h2 id="projects-title">Proyectos Destacados</h2>
+        <!-- Rellenar aquí mis proyectos destacados -->
+        <!-- Cada proyecto debería ir dentro de un div con clase project-card -->
+        <!-- Ejemplo:
         <div class="project-card">
-            <h3>Simulador de Redes Seguras</h3>
-            <p>Proyecto en Python y Scapy para simular ataques y defensas en redes locales.</p>
-            <p><strong>Tecnologías:</strong> Python, Networking</p>
+            <h3>Nombre del Proyecto</h3>
+            <p>Descripción breve</p>
+            <p><strong>Tecnologías:</strong> Python, Haskell</p>
         </div>
-        <div class="project-card">
-            <h3>Visualizador de Datos Matemáticos</h3>
-            <p>Aplicación interactiva de visualización de funciones y geometría con Haskell y Jupyter.</p>
-            <p><strong>Tecnologías:</strong> Haskell, Jupyter Notebook</p>
-        </div>
+        -->
     </section>
 
     <!-- Habilidades Técnicas / Skills -->
@@ -109,7 +117,7 @@ h1,h2 { color: var(--primary-color); margin-bottom:10px; }
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg" alt="Scala"><span>Scala</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg" alt="Haskell"><span>Haskell</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="RStudio"><span>RStudio</span></div>
-            <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mathematica/mathematica-original.svg" alt="Mathematica"><span>Mathematica</span></div>
+            <div class="skill"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Mathematica_Logo.svg" alt="Mathematica"><span>Mathematica</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter"><span>Jupyter</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/anaconda/anaconda-original.svg" alt="Anaconda"><span>Anaconda</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/latex/latex-original.svg" alt="LaTeX"><span>LaTeX</span></div>
@@ -144,4 +152,23 @@ h1,h2 { color: var(--primary-color); margin-bottom:10px; }
         <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
         <a href="#"><i class="fab fa-github"></i> GitHub</a>
         <br><br>
-        <a href="JuanManuelSantos_CV_ES.pdf" target="_blank"><i class
+        <a href="JuanManuelSantos_CV_ES.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Descargar CV</a>
+    </section>
+</div>
+
+<script>
+// Sidebar toggle
+const sidebar = document.getElementById('sidebar');
+document.getElementById('openSidebar').addEventListener('click', ()=> sidebar.classList.add('active'));
+document.getElementById('closeSidebar').addEventListener('click', ()=> sidebar.classList.remove('active'));
+
+// Language switcher completo
+const langData = {
+    en: {
+        sidebarRole: "Mathematics Student | Programming | Cybersecurity",
+        sidebarEmail: "Email",
+        sidebarLinkedin: "LinkedIn",
+        sidebarGithub: "GitHub",
+        sidebarCV: "Download CV",
+        profileTitle: "Profile",
+        profileText: "Passionate about cybersecurity with a solid foundation in logic, programming, and analytical
