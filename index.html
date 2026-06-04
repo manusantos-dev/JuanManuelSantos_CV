@@ -116,14 +116,13 @@ p { line-height: 1.6; }
 </head>
 <body>
 
-<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
   <i class="fas fa-times sidebar-toggle" id="closeSidebar"></i>
   <img src="images/foto.jpg" alt="Juan Manuel Santos">
   <h1>Juan Manuel Santos</h1>
   <h2 id="sidebar-role">Estudiante de Matemáticas | Programación | Ciberseguridad</h2>
 
-  <a id="link-email" href="mailto:jm.santos.dev@gmail.com">
+  <a id="link-email" href="https://mail.google.com/mail/?view=cm&fs=1&to=jm.santos.dev@gmail.com" target="_blank">
     <i class="fas fa-envelope"></i><span id="sidebar-email">Correo</span>
   </a>
 
@@ -147,15 +146,12 @@ p { line-height: 1.6; }
 
 <i class="fas fa-bars sidebar-toggle" id="openSidebar"></i>  
 
-<!-- Main -->
 <div class="main">
-    <!-- Sobre mí / Profile -->
     <section>
         <h2 id="profile-title">Perfil Profesional</h2>
         <p id="profile-text"></p>
     </section>
 
-    <!-- Habilidades Técnicas / Skills -->
     <section>
         <h2 id="skills-title">Stack Tecnológico</h2>
         <div class="skills-grid">
@@ -171,34 +167,28 @@ p { line-height: 1.6; }
         </div>
     </section>
 
-    <!-- Educación / Education -->
     <section>
         <h2 id="education-title">Formación Académica</h2>
         <ul id="edu-list" class="formatted-list"></ul>
     </section>
 
-    <!-- Experiencia / Experience -->
     <section>
         <h2 id="experience-title">Experiencia Profesional</h2>
         <ul id="exp-list" class="formatted-list"></ul>
     </section>
 
-    <!-- Certificaciones / Certifications -->
     <section>
         <h2 id="certifications-title">Certificaciones Técnicas</h2>
         <ul id="cert-list" class="formatted-list"></ul>
     </section>
 
-    <!-- Proyectos / Projects -->
     <section>
         <h2 id="projects-title">Proyectos Destacados</h2>
-        <!-- Rellenar aquí proyectos destacados cuando se suban a GitHub -->
-    </section>
+        </section>
 
-    <!-- Contacto / Contact -->
     <section class="contact">
         <h2 id="contact-title">Contacto</h2>
-        <a href="mailto:jm.santos.dev@gmail.com"><i class="fas fa-envelope"></i> <span id="contact-email"> Correo</span></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jm.santos.dev@gmail.com" target="_blank"><i class="fas fa-envelope"></i> <span id="contact-email"> Correo</span></a>
         <a href="https://www.linkedin.com/in/juan-manuel-santos-garcia/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
         <a href="https://github.com/manusantos-dev" target="_blank"><i class="fab fa-github"></i> GitHub</a>
         <br><br>
@@ -323,7 +313,7 @@ function switchLanguage(lang) {
   el.certList.innerHTML = t.certList.map(i => `<li>${i}</li>`).join('');
 
   // Hrefs: email y CV 
-  linkEmail.href = 'mailto:jm.santos.dev@gmail.com';
+  linkEmail.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=jm.santos.dev@gmail.com';
   linkLinkedin.href = 'https://www.linkedin.com/in/juan-manuel-santos-garcia/';
   linkGithub.href = 'https://github.com/manusantos-dev';
 
@@ -356,5 +346,3 @@ switchLanguage('en');
 </script>
 </body>
 </html>
-
-```
