@@ -5,7 +5,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 
-**[👉 Ver el portfolio en vivo aquí](https://manusantos-dev.github.io/tu-enlace-aqui)**
+**[👉 Ver el portfolio en vivo aquí]([https://manusantos-dev.github.io/JuanManuelSantos_CV/])**
 
 ## 📌 Sobre el proyecto
 Este repositorio contiene el código fuente de mi portfolio web interactivo y mi currículum vitae digital. Está diseñado para centralizar mi trayectoria académica en Matemáticas y mi experiencia práctica, orientando mi perfil hacia la programación avanzada, la algoritmia y la ciberseguridad corporativa.
