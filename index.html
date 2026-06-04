@@ -1,3 +1,15 @@
+Aquí tienes el código HTML y JavaScript completamente actualizado con la información que hemos estructurado para los currículums.
+
+He aplicado las siguientes mejoras:
+
+1. **Nuevos textos:** El *Perfil Profesional*, *Formación* y *Experiencia* ahora reflejan el tono corporativo y exacto que cerramos en los PDFs.
+2. **Nueva sección:** He añadido una sección específica para **Certificaciones Técnicas** (y su traducción) para que coincida con la estructura del currículum.
+3. **Stellarium:** He añadido el bloque en el *Stack Tecnológico*, justo antes de LaTeX, apuntando a `images/stellarium.svg`.
+4. **Estilos de lista mejorados:** He añadido unas pequeñas reglas CSS (`.formatted-list`) para que los títulos de tus estudios/experiencia salgan en negrita con el color principal de tu web, y las descripciones con viñetas queden perfectamente tabuladas debajo.
+
+Puedes copiar y pegar este código completo en tu archivo `index.html`:
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -45,7 +57,8 @@ body { display:flex; min-height:100vh; background:var(--secondary-color); color:
 /* Main */
 .main { flex:1; padding:40px 60px; }
 section { margin-bottom:50px; background: #fff; padding:20px; border-radius:15px; box-shadow:0 6px 15px rgba(0,0,0,0.05); }
-h1,h2 { color: var(--primary-color); margin-bottom:10px; }
+h1,h2 { color: var(--primary-color); margin-bottom:15px; }
+p { line-height: 1.6; }
 
 /* Skills */
 .skills-grid { display:flex; flex-wrap:wrap; gap:15px; margin-top:10px; }
@@ -59,7 +72,7 @@ h1,h2 { color: var(--primary-color); margin-bottom:10px; }
 .contact a { display:inline-block; text-decoration:none; color:var(--primary-color); margin-right:15px; }
 
 /* Language buttons */
-.lang-btn { cursor:pointer; padding:5px 10px; margin-right:5px; border-radius:5px; border:none; background:var(--accent-color); color:var(--text-color); transition:0.2s; }
+.lang-btn { cursor:pointer; padding:5px 10px; margin-right:5px; border-radius:5px; border:none; background:var(--accent-color); color:var(--text-color); transition:0.2s; font-weight: bold; }
 .lang-btn.active, .lang-btn:hover { background: var(--primary-color); color:#fff; }
 
 /* Botón hamburguesa */
@@ -75,7 +88,7 @@ h1,h2 { color: var(--primary-color); margin-bottom:10px; }
 
 /* Botón cerrar sidebar */
 #closeSidebar {
-    display: none; /* oculto por defecto */
+    display: none; 
     position: absolute;
     top: 20px;
     right: 20px;
@@ -85,21 +98,17 @@ h1,h2 { color: var(--primary-color); margin-bottom:10px; }
     color: var(--primary-color);
 }
 
-/* Cuando el sidebar esté activo, mostrar el botón cerrar */
-.sidebar.active #closeSidebar {
-    display: block;
-}
-
-/* Cuando el sidebar esté activo, ocultar el botón abrir */
-.sidebar.active ~ #openSidebar {
-    display: none;
-}
+.sidebar.active #closeSidebar { display: block; }
+.sidebar.active ~ #openSidebar { display: none; }
     
-/* Lists */
-ul { list-style: disc; padding-left:20px; }
-ul li { margin-bottom:10px; }
+/* Lists (Mejoradas para que el CV se vea bien estructurado) */
+.formatted-list { list-style: none; padding-left: 0; }
+.formatted-list > li { margin-bottom: 20px; line-height: 1.6; }
+.formatted-list > li > strong { color: var(--primary-color); display: inline-block; margin-bottom: 5px; font-size: 1.05rem; }
+.formatted-list ul { list-style: disc; padding-left: 20px; margin-top: 5px; font-size: 0.95rem; color: #555; }
+.formatted-list ul li { margin-bottom: 4px; }
 
-/* Rponsive */
+/* Responsive */
 @media(max-width:900px){
     body { flex-direction:column; }
     .sidebar { position:fixed; top:0; left:0; height:100%; transform:translateX(-100%); z-index:1000; }
@@ -116,7 +125,7 @@ ul li { margin-bottom:10px; }
   <i class="fas fa-times sidebar-toggle" id="closeSidebar"></i>
   <img src="images/foto.jpg" alt="Juan Manuel Santos">
   <h1>Juan Manuel Santos</h1>
-  <h2 id="sidebar-role">tudiante de Matemáticas | Programación | Ciberseguridad</h2>
+  <h2 id="sidebar-role">Estudiante de Matemáticas | Programación | Ciberseguridad</h2>
 
   <a id="link-email" href="mailto:jm.santos.dev@gmail.com">
     <i class="fas fa-envelope"></i><span id="sidebar-email">Correo</span>
@@ -130,12 +139,11 @@ ul li { margin-bottom:10px; }
     <i class="fab fa-github"></i><span id="sidebar-github">GitHub</span>
   </a>
 
-  <a id="link-cv" href="cvs/JuanManuelSantos_CV_.pdf" target="_blank" rel="noopener noreferrer">
+  <a id="link-cv" href="cvs/JuanManuelSantos_CV_ES.pdf" target="_blank" rel="noopener noreferrer">
     <i class="fas fa-file-pdf"></i><span id="sidebar-cv">Descargar CV</span>
   </a>
 
   <div>
-    <span id="lang-label">Idioma:</span>
     <button class="lang-btn active" id="btnEn">EN</button>
     <button class="lang-btn" id="btnEs">ES</button>
   </div>
@@ -147,26 +155,13 @@ ul li { margin-bottom:10px; }
 <div class="main">
     <!-- Sobre mí / Profile -->
     <section>
-        <h2 id="profile-title">Sobre mí</h2>
-        <p id="profile-text">Apasionado por la ciberseguridad, con una base sólida en lógica, programación y pensamiento analítico. Actualmente enfocado en desarrollar mis conocimientos en seguridad informática. Perfil autodidacta, con experiencia docente en informática y buen manejo de Python. Busco un entorno técnico en el que seguir creciendo y consolidando mi carrera en el ámbito de la ciberseguridad.</p>
-    </section>
-
-    <!-- Proyectos / Projects -->
-    <section>
-        <h2 id="projects-title">Proyectos Destacados</h2>
-        <!-- Rellenar aquí proyectos destacados -->
-        <!-- Ejemplo:
-        <div class="project-card">
-            <h3>Nombre del Proyecto</h3>
-            <p>Descripción breve del proyecto.</p>
-            <p><strong>Tecnologías:</strong> Python, Haskell</p>
-        </div>
-        -->
+        <h2 id="profile-title">Perfil Profesional</h2>
+        <p id="profile-text"></p>
     </section>
 
     <!-- Habilidades Técnicas / Skills -->
     <section>
-        <h2 id="skills-title">Habilidades Técnicas</h2>
+        <h2 id="skills-title">Stack Tecnológico</h2>
         <div class="skills-grid">
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg" alt="Scala"><span>Scala</span></div>
@@ -175,20 +170,34 @@ ul li { margin-bottom:10px; }
             <div class="skill"><img src="images/mathematica.svg" alt="Mathematica"><span>Mathematica</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter"><span>Jupyter</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/anaconda/anaconda-original.svg" alt="Anaconda"><span>Anaconda</span></div>
+            <!-- Aquí el hueco para Stellarium -->
+            <div class="skill"><img src="images/stellarium.svg" alt="Stellarium"><span>Stellarium</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/latex/latex-original.svg" alt="LaTeX"><span>LaTeX</span></div>
         </div>
     </section>
 
     <!-- Educación / Education -->
     <section>
-        <h2 id="education-title">Formación</h2>
-        <ul id="edu-list"></ul>
+        <h2 id="education-title">Formación Académica</h2>
+        <ul id="edu-list" class="formatted-list"></ul>
     </section>
 
     <!-- Experiencia / Experience -->
     <section>
-        <h2 id="experience-title">Experiencia</h2>
-        <ul id="exp-list"></ul>
+        <h2 id="experience-title">Experiencia Profesional</h2>
+        <ul id="exp-list" class="formatted-list"></ul>
+    </section>
+
+    <!-- Certificaciones / Certifications -->
+    <section>
+        <h2 id="certifications-title">Certificaciones Técnicas</h2>
+        <ul id="cert-list" class="formatted-list"></ul>
+    </section>
+
+    <!-- Proyectos / Projects -->
+    <section>
+        <h2 id="projects-title">Proyectos Destacados</h2>
+        <!-- Rellenar aquí proyectos destacados cuando se suban a GitHub -->
     </section>
 
     <!-- Contacto / Contact -->
@@ -209,52 +218,58 @@ const translations = {
     sidebarRole: "Estudiante de Matemáticas | Programación | Ciberseguridad",
     sidebarEmail: "Correo",
     sidebarCV: "Descargar CV",
-    profileTitle: "Sobre mí",
-    profileText: "Apasionado por la ciberseguridad, con una base sólida en lógica, programación y pensamiento analítico. Actualmente enfocado en desarrollar mis conocimientos en seguridad informática. Perfil autodidacta, con experiencia docente en informática y buen manejo de Python. Busco un entorno técnico en el que seguir creciendo y consolidando mi carrera en el ámbito de la ciberseguridad.",
+    profileTitle: "Perfil Profesional",
+    profileText: "Combino el rigor de la lógica matemática con 5 años de experiencia en programación funcional y orientada a objetos. Apasionado por la algoritmia y la resolución de problemas complejos, actualmente oriento esta base analítica hacia la ciberseguridad corporativa y la computación cuántica, con el objetivo de aportar soluciones eficientes y seguras en entornos tecnológicos.",
     projectsTitle: "Proyectos Destacados",
-    skillsTitle: "Habilidades Técnicas",
-    educationTitle: "Formación",
-    experienceTitle: "Experiencia",
+    skillsTitle: "Stack Tecnológico",
+    educationTitle: "Formación Académica",
+    experienceTitle: "Experiencia Profesional",
+    certificationsTitle: "Certificaciones Técnicas",
     contactTitle: "Contacto",
     contactEmail: "Correo",
     contactCV: "Descargar CV",
     cvFile: "cvs/JuanManuelSantos_CV_ES.pdf",
     eduList: [
-      "Universidad de Málaga – Grado en Matemáticas (2021 – Actualidad)",
-      "Alliance Française – Francés DELF B1 (2018 – 2019)",
-      "IES Bezmiliana – Bachillerato Tecnológico (2019 - 2021)",
-      "Santander Open Academy – Introducción a la Ciencia de Datos (Agosto 2024)",
-      "Google.org & Universidad de Málaga – Cyber Bootcamp (Julio 2025)"
+      "<strong>Grado en Matemáticas | Universidad de Málaga</strong> | 2021 - Actualidad<ul><li><strong>Base teórica y lógica:</strong> Especial interés en álgebra, topología y geometría, orientando su rigor analítico hacia la criptografía y la computación cuántica.</li><li><strong>Matemática aplicada:</strong> Capacidad práctica en optimización, probabilidad y estadística, orientada a la resolución algorítmica y al análisis de datos.</li><li><strong>Desarrollo:</strong> Formación práctica en programación avanzada (Haskell, Scala y Python), conectando la lógica matemática con la eficiencia computacional.</li></ul>"
     ],
     expList: [
-      "Autónomo – Profesor particular (Septiembre 2017 – Actualidad)",
-      "Academias UNITEC, Málaga – Profesor (Septiembre 2024 – Actualidad)"
+      "<strong>Profesor de Geometría y Programación | Academias UNITEC</strong> | Sept. 2024 - Actualidad<ul><li>Docencia universitaria en Geometría y Programación (Python, Haskell y Scala) para alumnos del Grado en Matemáticas.</li></ul>",
+      "<strong>Profesor Particular (Autónomo)</strong> | Sept. 2017 - Actualidad<ul><li>Desde 2022, clases particulares a nivel universitario en Geometría e Informática (Haskell y Scala).</li><li>Clases de apoyo en Matemáticas para estudiantes de ESO y Bachillerato.</li></ul>"
+    ],
+    certList: [
+      "<strong>MOOC en Ciberseguridad | INCIBE & UMA</strong> | 2025 - 2026<ul><li>65h de formación especializada en seguridad de redes, criptografía aplicada, programación segura y análisis de malware.</li></ul>",
+      "<strong>Cyber Bootcamp | Google.org & UMA</strong> | 2025<ul><li>Talleres prácticos intensivos en entornos simulados para respuesta a incidentes y técnicas de hacking ético.</li></ul>",
+      "<strong>Qiskit Fall Fest | IBM Quantum & Quant UMA</strong> | 2025<ul><li>Introducción práctica a la algoritmia cuántica e implementación de circuitos utilizando el framework Qiskit.</li></ul>",
+      "<strong>Intro. a la Ciencia de Datos | Santander Open Academy</strong> | 2024<ul><li>Análisis exploratorio, visualización de datos y modelado predictivo con Python.</li></ul>"
     ]
   },
   en: {
     sidebarRole: "Mathematics Student | Programming | Cybersecurity",
     sidebarEmail: "Email",
     sidebarCV: "Download CV",
-    profileTitle: "Profile",
-    profileText: "Passionate about cybersecurity with a solid foundation in logic, programming, and analytical thinking. Currently focused on developing my knowledge in information security. Self-taught, with teaching experience in computing and strong Python skills. Looking for a technical environment to continue growing and consolidating my career in cybersecurity.",
+    profileTitle: "Professional Profile",
+    profileText: "I combine the rigor of mathematical logic with 5 years of experience in functional and object-oriented programming. Passionate about algorithmics and complex problem-solving, I am currently directing this analytical foundation towards corporate cybersecurity and quantum computing, with the goal of providing efficient and secure solutions in technological environments.",
     projectsTitle: "Highlighted Projects",
-    skillsTitle: "Technical Skills",
+    skillsTitle: "Tech Stack",
     educationTitle: "Education",
-    experienceTitle: "Experience",
+    experienceTitle: "Professional Experience",
+    certificationsTitle: "Technical Certifications",
     contactTitle: "Contact",
     contactEmail: "Email",
     contactCV: "Download CV",
     cvFile: "cvs/JuanManuelSantos_CV_EN.pdf",
     eduList: [
-      "University of Málaga – BSc in Mathematics (2021 – Present)",
-      "Alliance Française – French DELF B1 (2018 – 2019)",
-      "IES Bezmiliana – Science & Technology High School Diploma (2019 - 2021)",
-      "Santander Open Academy – Introduction to Data Science (August 2024)",
-      "Google.org & University of Málaga – Cyber Bootcamp (July 2025)"
+      "<strong>BSc in Mathematics | University of Málaga</strong> | 2021 - Present<ul><li><strong>Theoretical & Logical Foundation:</strong> Special interest in algebra, topology, and geometry, orienting their analytical rigor towards cryptography and quantum computing.</li><li><strong>Applied Mathematics:</strong> Practical capacity in optimization, probability, and statistics, oriented towards algorithmic resolution and data analysis.</li><li><strong>Software Development:</strong> Practical training in advanced programming (Haskell, Scala, and Python), connecting mathematical logic with computational efficiency.</li></ul>"
     ],
     expList: [
-      "Freelancer – Private Tutor (September 2017 – Present)",
-      "UNITEC Academies, Málaga – Teacher (September 2024 – Present)"
+      "<strong>Geometry & Programming Instructor | UNITEC Academies</strong> | Sept. 2024 - Present<ul><li>University-level instruction in Geometry and Programming (Python, Haskell, and Scala) for first-year BSc Mathematics students.</li></ul>",
+      "<strong>Private Tutor (Freelance)</strong> | Sept. 2017 - Present<ul><li>Since 2022, university-level private tutoring in Geometry and Computer Science (Haskell and Scala).</li><li>Mathematics tutoring for Secondary and High School students.</li></ul>"
+    ],
+    certList: [
+      "<strong>Cybersecurity MOOC | INCIBE & UMA</strong> | 2025 - 2026<ul><li>65 hours of specialized training in network security, applied cryptography, secure programming, and malware analysis.</li></ul>",
+      "<strong>Cyber Bootcamp | Google.org & UMA</strong> | 2025<ul><li>Intensive hands-on workshops in simulated environments for incident response and ethical hacking techniques.</li></ul>",
+      "<strong>Qiskit Fall Fest | IBM Quantum & Quant UMA</strong> | 2025<ul><li>Practical introduction to quantum algorithmics and circuit implementation using the Qiskit framework.</li></ul>",
+      "<strong>Introduction to Data Science | Santander Open Academy</strong> | 2024<ul><li>Exploratory data analysis, data visualization, and predictive modeling with Python.</li></ul>"
     ]
   }
 };
@@ -271,13 +286,13 @@ const el = {
   skillsTitle: document.getElementById('skills-title'),
   educationTitle: document.getElementById('education-title'),
   experienceTitle: document.getElementById('experience-title'),
+  certificationsTitle: document.getElementById('certifications-title'),
   contactTitle: document.getElementById('contact-title'),
   contactEmailText: document.getElementById('contact-email'),
   contactCVText: document.getElementById('contact-cv'),
-  contactEmailText: document.getElementById('contact-email'),
-  contactCVText: document.getElementById('contact-cv'),
   eduList: document.getElementById('edu-list'),
-  expList: document.getElementById('exp-list')
+  expList: document.getElementById('exp-list'),
+  certList: document.getElementById('cert-list')
 };
 
 const linkEmail = document.getElementById('link-email');
@@ -302,6 +317,7 @@ function switchLanguage(lang) {
   el.skillsTitle.textContent = t.skillsTitle;
   el.educationTitle.textContent = t.educationTitle;
   el.experienceTitle.textContent = t.experienceTitle;
+  el.certificationsTitle.textContent = t.certificationsTitle;
   el.contactTitle.textContent = t.contactTitle;
   el.contactEmailText.textContent = t.contactEmail;
   el.contactCVText.textContent = t.contactCV;
@@ -309,6 +325,7 @@ function switchLanguage(lang) {
   // Listas (recrear HTML)
   el.eduList.innerHTML = t.eduList.map(i => `<li>${i}</li>`).join('');
   el.expList.innerHTML = t.expList.map(i => `<li>${i}</li>`).join('');
+  el.certList.innerHTML = t.certList.map(i => `<li>${i}</li>`).join('');
 
   // Hrefs: email y CV 
   linkEmail.href = 'mailto:jm.santos.dev@gmail.com';
@@ -317,7 +334,6 @@ function switchLanguage(lang) {
 
   // CV según idioma:
   linkCV.href = t.cvFile;
-  // Actualizar también el enlace de descarga en la sección Contacto (si existe)
   const contactCvAnchor = document.querySelector('section.contact a[href*="cvs/"], a#link-cv');
   if (contactCvAnchor) contactCvAnchor.href = t.cvFile;
 
@@ -345,3 +361,5 @@ switchLanguage('en');
 </script>
 </body>
 </html>
+
+```
