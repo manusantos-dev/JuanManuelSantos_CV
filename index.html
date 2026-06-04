@@ -1,15 +1,3 @@
-Aquí tienes el código HTML y JavaScript completamente actualizado con la información que hemos estructurado para los currículums.
-
-He aplicado las siguientes mejoras:
-
-1. **Nuevos textos:** El *Perfil Profesional*, *Formación* y *Experiencia* ahora reflejan el tono corporativo y exacto que cerramos en los PDFs.
-2. **Nueva sección:** He añadido una sección específica para **Certificaciones Técnicas** (y su traducción) para que coincida con la estructura del currículum.
-3. **Stellarium:** He añadido el bloque en el *Stack Tecnológico*, justo antes de LaTeX, apuntando a `images/stellarium.svg`.
-4. **Estilos de lista mejorados:** He añadido unas pequeñas reglas CSS (`.formatted-list`) para que los títulos de tus estudios/experiencia salgan en negrita con el color principal de tu web, y las descripciones con viñetas queden perfectamente tabuladas debajo.
-
-Puedes copiar y pegar este código completo en tu archivo `index.html`:
-
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -101,7 +89,7 @@ p { line-height: 1.6; }
 .sidebar.active #closeSidebar { display: block; }
 .sidebar.active ~ #openSidebar { display: none; }
     
-/* Lists (Mejoradas para que el CV se vea bien estructurado) */
+/* Lists */
 .formatted-list { list-style: none; padding-left: 0; }
 .formatted-list > li { margin-bottom: 20px; line-height: 1.6; }
 .formatted-list > li > strong { color: var(--primary-color); display: inline-block; margin-bottom: 5px; font-size: 1.05rem; }
@@ -170,7 +158,6 @@ p { line-height: 1.6; }
             <div class="skill"><img src="images/mathematica.svg" alt="Mathematica"><span>Mathematica</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter"><span>Jupyter</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/anaconda/anaconda-original.svg" alt="Anaconda"><span>Anaconda</span></div>
-            <!-- Aquí el hueco para Stellarium -->
             <div class="skill"><img src="images/stellarium.svg" alt="Stellarium"><span>Stellarium</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/latex/latex-original.svg" alt="LaTeX"><span>LaTeX</span></div>
         </div>
