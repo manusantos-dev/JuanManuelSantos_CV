@@ -89,5 +89,5 @@ Tanto si quieres hablar de computación cuántica, criptografía, o tienes una p
 
 ---
 <div align="center">
-  <em>Desarrollado con rigor analítico.</em>
+  <em>Q.E.D.</em>
 </div>
