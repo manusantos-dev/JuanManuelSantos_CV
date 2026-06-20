@@ -43,6 +43,11 @@ Whether you want to discuss quantum computing, cryptography, or have a professio
 * [Email](https://mail.google.com/mail/?view=cm&to=jm.santos.dev@gmail.com)
 
 ---
+
+<div align="center">
+  <em>Q.E.D.</em>
+</div>
+
 <br><br><br>
 
 <div align="center">
