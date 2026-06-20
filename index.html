@@ -164,6 +164,8 @@ p { line-height: 1.6; }
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/anaconda/anaconda-original.svg" alt="Anaconda"><span>Anaconda</span></div>
             <div class="skill"><img src="images/stellarium.svg" alt="Stellarium"><span>Stellarium</span></div>
             <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/latex/latex-original.svg" alt="LaTeX"><span>LaTeX</span></div>
+            <div class="skill"><i class="fas fa-robot" style="font-size: 40px; margin-bottom: 5px; color: #333;"></i><span>AI Assisted</span></div>
+            <div class="skill"><i class="fas fa-terminal" style="font-size: 40px; margin-bottom: 5px; color: #333;"></i><span>Prompt Eng.</span></div>
         </div>
     </section>
 
@@ -220,6 +222,7 @@ const translations = {
     profileTitle: "Perfil Profesional",
     profileText: "Combino el rigor de la lógica matemática con 5 años de experiencia en programación funcional y orientada a objetos. Apasionado por la algoritmia y la resolución de problemas complejos, actualmente oriento esta base analítica hacia la ciberseguridad corporativa y la computación cuántica, con el objetivo de aportar soluciones eficientes y seguras en entornos tecnológicos.",
     projectsTitle: "Proyectos Destacados",
+    project1Desc: "Editor y catálogo de partituras musicales en el navegador. Renderizado algorítmico, motor de reproducción acústica y exportación a PDF nativa construidos íntegramente con ES Modules y sincronización en la nube.",
     skillsTitle: "Stack Tecnológico",
     educationTitle: "Formación Académica",
     experienceTitle: "Experiencia Profesional",
@@ -249,6 +252,7 @@ const translations = {
     profileTitle: "Professional Profile",
     profileText: "I combine the rigor of mathematical logic with 5 years of experience in functional and object-oriented programming. Passionate about algorithmics and complex problem-solving, I am currently directing this analytical foundation towards corporate cybersecurity and quantum computing, with the goal of providing efficient and secure solutions in technological environments.",
     projectsTitle: "Highlighted Projects",
+    project1Desc: "Browser-based piano sheet music editor and catalog. Algorithmic rendering, acoustic playback engine, and native PDF export built entirely with ES Modules and cloud synchronization.",
     skillsTitle: "Tech Stack",
     educationTitle: "Education",
     experienceTitle: "Professional Experience",
@@ -282,6 +286,7 @@ const el = {
   profileTitle: document.getElementById('profile-title'),
   profileText: document.getElementById('profile-text'),
   projectsTitle: document.getElementById('projects-title'),
+  project1Desc: document.getElementById('project1-desc'),
   skillsTitle: document.getElementById('skills-title'),
   educationTitle: document.getElementById('education-title'),
   experienceTitle: document.getElementById('experience-title'),
@@ -313,6 +318,7 @@ function switchLanguage(lang) {
   el.profileTitle.textContent = t.profileTitle;
   el.profileText.textContent = t.profileText;
   el.projectsTitle.textContent = t.projectsTitle;
+  el.project1Desc.textContent = t.project1Desc;
   el.skillsTitle.textContent = t.skillsTitle;
   el.educationTitle.textContent = t.educationTitle;
   el.experienceTitle.textContent = t.experienceTitle;
@@ -353,6 +359,8 @@ const closeSidebar = document.getElementById('closeSidebar');
 if (openSidebar && closeSidebar) {
   openSidebar.addEventListener('click', ()=> sidebar.classList.add('active'));
   closeSidebar.addEventListener('click', ()=> sidebar.classList.remove('active'));
+  
+  sidebar.querySelectorAll('a').forEach(link => link.addEventListener('click', () => sidebar.classList.remove('active')));
 }
 
 /* --- Inicial: inglés por defecto --- */
